@@ -53,10 +53,11 @@ local lualine = require("lualine")
 local lualineTheme = require("lualine.themes." .. colorschemes[timeOfDay].lualine)
 
 local newColors = {
-  blue = "#66D1FF",
-  green = "#4EFFDC",
+  blue = "#91ddff",
+  green = "#56f378",
   violet = "#FF62EF",
   yellow = "#FFDA8B",
+  orange = "#ff9248",
   black = "#000001",
   fg = "#3d2b5a",
 }

@@ -49,6 +49,10 @@ echo
 header "Updating ZSH Plugins..."
 zinit update --parallel
 
+# Oh My Posh
+header "Updating Oh My Posh..."
+oh-my-posh upgrade
+
 # Homebrew
 header "Updating Homebrew packages..."
 brew update

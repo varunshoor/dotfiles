@@ -113,5 +113,5 @@ zinit snippet OMZP::fnm
 
 # Causes
 # Error: The compinit function hasn't been loaded, cannot do compdef replay.
-zinit ice atload"zpcdreplay" atclone"./zplug.zsh" atpull"%atclone"
-zinit light g-plane/pnpm-shell-completion
+# zinit ice atload"zpcdreplay" atclone"./zplug.zsh" atpull"%atclone"
+# zinit light g-plane/pnpm-shell-completion

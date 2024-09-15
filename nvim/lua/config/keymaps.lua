@@ -23,7 +23,6 @@ keymap.set("n", "<Leader><Leader>", ":w<CR>", { noremap = true })
 -- all occurrences
 vim.keymap.set("n", "<Leader>*", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { silent = false })
 vim.keymap.set("n", "<Leader>?", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { silent = false })
-
 -- Zoom and Zoom Out like Tmux
 if vim.g.zoomed_state == nil then
   vim.g.zoomed_state = false

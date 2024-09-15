@@ -1,0 +1,15 @@
+# /Users/varunshoor/.config/tmuxinator/gslash/gto-worker.yml
+
+name: gslash/gto-worker
+root: ~/bottomline/gslash/gto-worker
+
+windows:
+  - nvim:
+      layout: 9929,231x66,0,0[231x57,0,0,27,231x8,0,58{104x8,0,58,30,70x8,105,58,33,55x8,176,58,31}]
+      panes:
+        - nvim .
+        -
+        - pnpm run dev
+        - pnpm test:coverage
+  - console:
+  - git: lazygit

@@ -1,0 +1,18 @@
+# /Users/varunshoor/.config/tmuxinator/bottomlinevc/website.yml
+
+name: bottomlinevc/website
+root: ~/bottomline/bottomlinevc/website
+
+windows:
+  - nvim:
+      layout: 2644,231x66,0,0[231x57,0,0,103,231x8,0,58,104]
+      panes:
+        - nvim .
+        -
+  - console:
+  - git: lazygit
+  - servers:
+      layout: even-vertical
+      panes:
+        - pnpm slicemachine
+        - pnpm dev

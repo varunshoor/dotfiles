@@ -1,0 +1,24 @@
+# /Users/varunshoor/.config/tmuxinator/workspace.yml
+
+name: workspace
+root: ~/
+
+windows:
+  - console: clear
+  - nvim:
+      root: ~/.config/nvim
+      layout: 2644,231x66,0,0[231x57,0,0,103,231x8,0,58,104]
+      panes:
+        - nvim .
+        -
+  - zshrc:
+      layout: 2644,231x66,0,0[231x57,0,0,103,231x8,0,58,104]
+      panes:
+        - nvim ~/.zshrc
+        -
+  - tmux:
+      layout: 2644,231x66,0,0[231x57,0,0,103,231x8,0,58,104]
+      panes:
+        - nvim ~/.tmux.conf
+        -
+  - git: cd dotfiles && lazygit

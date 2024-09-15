@@ -1,0 +1,13 @@
+# /Users/varunshoor/.config/tmuxinator/nametrust/epp.yml
+
+name: nametrust/epp
+root: ~/bottomline/nametrust/epp
+
+windows:
+  - nvim:
+      layout: 2644,231x66,0,0[231x57,0,0,103,231x8,0,58,104]
+      panes:
+        - nvim .
+        -
+  - console:
+  - git: lazygit

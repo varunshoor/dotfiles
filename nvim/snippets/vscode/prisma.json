@@ -1,0 +1,6 @@
+{
+  "PrismaModel": {
+    "prefix": "mo",
+    "body": ["model $1 {", "  $2", "}"]
+  }
+}

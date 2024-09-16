@@ -1,5 +1,6 @@
 -- Automatic list continuation and formatting for neovim
 -- Good for Markdown and text documents
+-- See: https://github.com/gaoDean/autolist.nvim
 
 return {
   "gaoDean/autolist.nvim",

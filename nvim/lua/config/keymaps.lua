@@ -97,7 +97,7 @@ vim.keymap.set({ "i" }, "<S-Del>", "<ESC>ddi")
 keymap.set("n", "<BS>", "<C-^>")
 
 -- Delete buffer
-keymap.set("n", "<leader>z", "<leader>bd<CR>")
+keymap.set("n", "<leader>z", LazyVim.ui.bufremove)
 
 -- Don't yank on delete char
 -- 17 Sep 23: Commented this so that cut functionalit
@@ -250,9 +250,6 @@ keymap.set("n", "<M-5>", "<Cmd>tabn 5<CR>", {})
 keymap.set("n", "<M-6>", "<Cmd>tabn 6<CR>", {})
 keymap.set("n", "<M-7>", "<Cmd>tabn 7<CR>", {})
 keymap.set("n", "<M-8>", "<Cmd>tabn 8<CR>", {})
-
-keymap.set("n", "]<tab>", "<cmd>tabn<cr>", { noremap = true, silent = true })
-keymap.set("n", "[<tab>", "<cmd>tabp<cr>", { noremap = true, silent = true })
 
 keymap.set("n", "<leader><tab>", "<cmd>$tabnew<cr>", { noremap = true, silent = true })
 

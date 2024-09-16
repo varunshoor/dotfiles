@@ -175,47 +175,6 @@ api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   end,
 })
 
--- api.nvim_create_autocmd({ "SessionLoadPost" }, {
---   callback = function()
--- vim.api.nvim_command("Neotree position=left source=filesystem action=show")
---   end,
--- })
-
--- Include tab pages in session management
--- vim.opt.sessionoptions = {
---   "buffers",
---   "tabpages",
---   "globals",
---   "winsize",
---   "curdir",
--- }
-
--- -- Fixes the tabby init bug
--- api.nvim_create_autocmd({ "UIEnter" }, {
---   callback = function()
---     require("tabby").init()
---     require("tabby.tabline").use_preset("active_wins_at_tail")
---   end,
--- })
---
--- Show the neo tree on tab enter
--- api.nvim_create_autocmd({ "TabEnter" }, {
---   callback = function()
--- vim.cmd("Neotree")
--- vim.cmd("Neotree action=open")
---   end,
--- })
---
--- -- api.nvim_create_autocmd({ "BufEnter" }, {
--- --   callback = function()
--- --     vim.cmd("wincmd w")
--- --     -- vim.cmd("autocmd BufEnter * if empty(expand('%')) | wincmd p | endif")
--- --   end,
--- -- })
---
--- -- Always display tabline
--- vim.o.showtabline = 2
-
 -- Makefiles require actual tabs
 vim.cmd("au FileType make setlocal noexpandtab")
 

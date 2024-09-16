@@ -1,0 +1,15 @@
+gui:
+  sidePanelWidth: 0.25
+  expandFocusedSidePanel: true
+  nerdFontsVersion: "3"
+  authorColors:
+    "Varun Shoor": "#ff9248"
+  showRandomTip: false
+git:
+  parseEmoji: true
+  commit:
+    autoWrapCommitMessage: true
+    autoWrapWidth: 72
+  paging:
+    colorArg: always
+    pager: delta --light --syntax-theme GitHub --paging=never

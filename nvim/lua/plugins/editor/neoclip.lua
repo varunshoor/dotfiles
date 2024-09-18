@@ -1,3 +1,7 @@
+-- Clipboard History
+-- Hotkey configured in Telescope config
+-- See: https://github.com/AckslD/nvim-neoclip.lua
+
 return {
   "AckslD/nvim-neoclip.lua",
   lazy = true,

@@ -1,4 +1,5 @@
 -- Move lines and blocks of text vertically and horizontally
+-- See: https://github.com/booperlv/nvim-gomove
 
 return {
   "booperlv/nvim-gomove",
@@ -13,13 +14,13 @@ return {
     -- whether to not to move past end column when moving blocks horizontally, (true/false)
     move_past_end_col = false,
   },
+  keys = {
+    { "<M-Down>", "<Plug>GoNSMDown", mode = { "n" }, desc = "Move line down" },
+    { "<M-Up>", "<Plug>GoNSMUp", mode = { "n" }, desc = "Move line up" },
+    { "<M-Down>", "<Plug>GoVSMDown", mode = { "v" }, desc = "Move selection down" },
+    { "<M-Up>", "<Plug>GoVSMUp", mode = { "v" }, desc = "Move selection up" },
+  },
   config = function()
     require("gomove").setup()
-
-    vim.keymap.set("n", "<M-Down>", "<Plug>GoNSMDown", { noremap = true, silent = true })
-    vim.keymap.set("n", "<M-Up>", "<Plug>GoNSMUp", { noremap = true, silent = true })
-
-    vim.keymap.set("v", "<M-Down>", "<Plug>GoVSMDown", { noremap = true, silent = true })
-    vim.keymap.set("v", "<M-Up>", "<Plug>GoVSMUp", { noremap = true, silent = true })
   end,
 }

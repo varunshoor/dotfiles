@@ -1,4 +1,5 @@
 -- Creates links to Github for selection or line
+-- See: https://github.com/linrongbin16/gitlinker.nvim
 
 return {
   "linrongbin16/gitlinker.nvim",

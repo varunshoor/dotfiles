@@ -1,4 +1,5 @@
 -- Shows live progress of Github actions and allows triggering them
+-- See: https://github.com/topaxi/gh-actions.nvim
 
 return {
   "topaxi/gh-actions.nvim",

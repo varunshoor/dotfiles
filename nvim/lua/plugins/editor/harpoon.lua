@@ -1,3 +1,10 @@
+-- Better Marks
+-- This has been tightly integrated with Kitty.
+-- Use Cmd + [ ] to navigate between buffers.
+-- Use Cmd + a to add a new buffer.
+-- Use Cmd + 1 2 3 4 to navigate to the first four buffers.
+-- See: https://github.com/ThePrimeagen/harpoon
+
 return {
   "ThePrimeagen/harpoon",
   event = "VeryLazy",

@@ -1,4 +1,5 @@
 -- Creates a modal for project specific notes
+-- See: https://github.com/JellyApple102/flote.nvim
 
 return {
   "JellyApple102/flote.nvim",

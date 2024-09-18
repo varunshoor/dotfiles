@@ -1,3 +1,7 @@
+-- Run lines/blocs of code
+-- See: https://github.com/michaelb/sniprun
+-- TODO: Go isn't running
+
 return {
   "michaelb/sniprun",
   lazy = true,
@@ -6,13 +10,13 @@ return {
   build = "sh install.sh",
   cmd = { "SnipRun", "SnipRunOperator", "SnipRunLive", "SnipClose" },
 
-  keymaps = {
-    { "n", "<leader>rs", ":SnipRun<CR>", { noremap = true, silent = true } },
-    { "v", "<leader>rs", ":SnipRun<CR>", { noremap = true, silent = true } },
-    { "n", "<leader>rf", ":%SnipRun<CR>", { noremap = true, silent = true } },
-    { "v", "<leader>rf", ":%SnipRun<CR>", { noremap = true, silent = true } },
-    { "n", "<leader>rc", ":SnipClose<CR>", { noremap = true, silent = true } },
-    { "v", "<leader>rc", ":SnipClose<CR>", { noremap = true, silent = true } },
+  keys = {
+    { "<leader>rs", ":SnipRun<CR>", mode = "n", desc = "Run Snippet" },
+    { "<leader>rf", ":%SnipRun<CR>", mode = "n", desc = "Run File" },
+    { "<leader>rc", ":SnipClose<CR>", mode = "n", desc = "Close Snippet" },
+    { "<leader>rs", ":SnipRun<CR>", mode = "v", desc = "Run Snippet" },
+    { "<leader>rf", ":%SnipRun<CR>", mode = "v", desc = "Run File" },
+    { "<leader>rc", ":SnipClose<CR>", mode = "v", desc = "Close Snippet" },
   },
 
   config = function()

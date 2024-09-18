@@ -14,6 +14,10 @@ keymap.set("v", "q", "<Nop>")
 -- keymap.set("", "<down>", "<nop>")
 -- keymap.set("", "<left>", "<nop>")
 
+-- Break out of comment chain with Shift+Enter
+-- Shift+Enter is mapped to Ctrl+x in Kitty
+keymap.set("i", "<C-x>", "<Esc>o<C-u>", { noremap = true })
+
 -- Save using \w
 keymap.set("n", "<leader>w", ":w<cr>")
 -- fast save
@@ -132,10 +136,10 @@ keymap.set("i", "<C-o>", "<Esc>o", { desc = "Insert new line below when in inser
 keymap.set("i", "<C-M-o>", "<Esc>O", { desc = "Insert new line above when in insert mode" })
 
 -- Increment/decrement
-keymap.set("n", "+", "<C-a>")
-keymap.set("n", "-", "<C-x>")
-keymap.set("x", "+", "g<C-a>")
-keymap.set("x", "-", "g<C-x>")
+-- keymap.set("n", "+", "<C-a>")
+-- keymap.set("n", "-", "<C-x>")
+-- keymap.set("x", "+", "g<C-a>")
+-- keymap.set("x", "-", "g<C-x>")
 
 -- Delete a word backwards
 keymap.set("n", "dw", 'vb"_d')
@@ -144,9 +148,9 @@ keymap.set("n", "dw", 'vb"_d')
 keymap.set("n", "<C-M-a>", "gg<S-v>G")
 
 -- Start and End of Line Movements
-keymap.set("n", "<C-a>", "0")
+keymap.set("n", "<C-d>", "0")
 keymap.set("n", "<C-e>", "$")
-keymap.set("i", "<C-a>", "<C-o>0")
+keymap.set("i", "<C-d>", "<C-o>0")
 keymap.set("i", "<C-e>", "<C-o>$")
 keymap.set("c", "<C-a>", "<Home>")
 keymap.set("c", "<C-e>", "<End>")

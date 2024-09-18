@@ -1,4 +1,5 @@
 -- Neovim plugin for splitting/joining blocks of code like arrays, hashes, statements, objects, dictionaries, etc.
+-- See: https://github.com/Wansmer/treesj
 
 return {
   "Wansmer/treesj",

@@ -1,13 +1,12 @@
 -- Rest client in neovim
+-- See: https://github.com/rest-nvim/rest.nvim
+
 return {
   "rest-nvim/rest.nvim",
   ft = "http",
   dependencies = { "luarocks.nvim" },
-  config = function()
-    require("rest-nvim").setup()
-
-    -- rest.nvim
-    vim.keymap.set({ "n" }, "<leader>rr", "<Plug>RestNvim")
-    vim.keymap.set({ "n" }, "<leader>rp", "<Plug>RestNvimPreview")
-  end,
+  keys = {
+    { "<leader>rr", "<cmd>Rest run<cr>", desc = "Run request under cursor" },
+    { "<leader>rl", "<cmd>Rest last<cr>", desc = "Run last request" },
+  },
 }

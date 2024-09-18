@@ -1,3 +1,7 @@
+-- See: https://github.com/mfussenegger/nvim-lint
+-- Q: Why does this exist?
+-- TODO: Find out
+
 return {
   {
     "mfussenegger/nvim-lint",

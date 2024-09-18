@@ -1,4 +1,5 @@
 -- Nested navigation for files with symbols
+-- See: https://github.com/SmiteshP/nvim-navbuddy
 
 return {
   "neovim/nvim-lspconfig",
@@ -12,8 +13,8 @@ return {
       opts = { lsp = { auto_attach = true } },
     },
   },
-  keymaps = {
-    { "n", "<leader>;", ":Navbuddy<CR>", { noremap = true, silent = true } },
+  keys = {
+    { ";;", ":Navbuddy<CR>", mode = { "n" }, desc = "Navigate symbols" },
   },
   event = "VeryLazy",
 }

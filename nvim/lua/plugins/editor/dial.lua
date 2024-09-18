@@ -1,4 +1,6 @@
 -- Extended increment/decrement plugin
+-- Does much more than numbers
+-- +/- on bool values can toggle them, can also add custom ones below
 
 return {
   "monaqa/dial.nvim",
@@ -73,35 +75,5 @@ return {
         add_constant({ "private", "public" }, true),
       },
     })
-
-    -- vim.keymap.set("n", "-", require("dial.map").dec_normal())
-    -- vim.keymap.set("n", "+", require("dial.map").inc_normal())
-    vim.keymap.set("v", "-", require("dial.map").dec_visual())
-    vim.keymap.set("v", "+", require("dial.map").inc_visual())
-
-    local wkl = require("which-key")
-
-    vim.cmd("autocmd FileType go lua WhichKeyGo()")
-    vim.cmd("autocmd FileType javascript lua WhichKeyJS()")
-    vim.cmd("autocmd FileType typescript lua WhichKeyJS()")
-    vim.cmd("autocmd FileType lua lua WhichKeyLua()")
-    function WhichKeyGo()
-      wkl.register({
-        ["+"] = { require("dial.map").inc_normal("go"), "increment" },
-        ["-"] = { require("dial.map").dec_normal("go"), "decrement" },
-      })
-    end
-    function WhichKeyJS()
-      wkl.register({
-        ["+"] = { require("dial.map").inc_normal("js"), "increment" },
-        ["-"] = { require("dial.map").dec_normal("js"), "decrement" },
-      })
-    end
-    function WhichKeyLua()
-      wkl.register({
-        ["+"] = { require("dial.map").inc_normal("lua"), "increment" },
-        ["-"] = { require("dial.map").dec_normal("lua"), "decrement" },
-      })
-    end
   end,
 }

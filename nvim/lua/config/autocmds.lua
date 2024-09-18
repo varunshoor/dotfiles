@@ -26,6 +26,33 @@ api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 
 vim.g.is_closing_buffer = false
 
+-- Function to set keymaps based on filetype
+local function set_dial_keymaps(filetype)
+  local group = filetype or "default"
+  vim.keymap.set("n", "+", require("dial.map").inc_normal(group), { buffer = true })
+  vim.keymap.set("n", "-", require("dial.map").dec_normal(group), { buffer = true })
+  vim.keymap.set("v", "+", require("dial.map").inc_visual(group), { buffer = true })
+  vim.keymap.set("v", "-", require("dial.map").dec_visual(group), { buffer = true })
+end
+
+-- Set up autocommands for specific filetypes
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "go", "javascript", "typescript", "lua" },
+  callback = function(opts)
+    set_dial_keymaps(opts.match)
+  end,
+})
+
+-- Set up default keymaps for other filetypes
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    if not vim.tbl_contains({ "go", "javascript", "typescript", "lua" }, vim.bo.filetype) then
+      set_dial_keymaps()
+    end
+  end,
+})
+
 -- Disable SQL Complete
 vim.api.nvim_create_autocmd("Filetype", {
   pattern = "sql",

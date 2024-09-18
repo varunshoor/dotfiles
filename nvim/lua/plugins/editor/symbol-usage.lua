@@ -1,3 +1,6 @@
+-- Display references, definitions and implementations of document symbols
+-- See: https://github.com/Wansmer/symbol-usage.nvim
+
 local function text_format(symbol)
   local res = {}
 

@@ -1,9 +1,19 @@
+-- Take Screenshots and Place them in Clipboard
+-- See: https://github.com/michaelrommel/nvim-silicon
+
 return {
   "michaelrommel/nvim-silicon",
   lazy = true,
   cmd = "Silicon",
-  keymaps = {
-    { "n", "<leader>ss", ":Silicon<CR>", { noremap = true, silent = true } },
+  keys = {
+    {
+      "<leader>ss",
+      function()
+        require("nvim-silicon").clip()
+      end,
+      mode = { "n", "v" },
+      desc = "Take Screenshot",
+    },
   },
   config = function()
     require("silicon").setup({

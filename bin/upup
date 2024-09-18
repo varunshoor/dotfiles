@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 #
 # Get macOS software updates, update Homebrew, npm, dotfiles and some other software.
 #
@@ -46,8 +46,9 @@ pnpm update -g
 echo
 
 # zsh
-header "Updating ZSH Plugins..."
-zinit update --parallel
+header "Run following commands manually to update ZSH Plugins..."
+echo "Run: zinit self-update"
+echo "Run: zinit update"
 
 # Oh My Posh
 header "Updating Oh My Posh..."

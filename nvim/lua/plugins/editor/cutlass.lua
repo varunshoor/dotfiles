@@ -1,4 +1,5 @@
 -- Cutlass overrides the delete operations to actually just delete and not affect the current yank.
+-- See: https://github.com/gbprod/cutlass.nvim
 
 return {
   "gbprod/cutlass.nvim",

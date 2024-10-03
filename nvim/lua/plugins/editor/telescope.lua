@@ -2,6 +2,8 @@ local function telescope_buffer_dir()
   return vim.fn.expand("%:p:h")
 end
 
+local open_with_trouble = require("trouble.sources.telescope").open
+
 return {
   "nvim-telescope/telescope.nvim",
   cmd = "Telescope",
@@ -157,6 +159,13 @@ return {
         mappings = {
           i = {
             ["<esc>"] = require("telescope.actions").close, -- Close directly on Esc vs entering normal mode
+            ["<C-q>"] = require("telescope.actions").smart_send_to_qflist + require("telescope.actions").open_qflist,
+            ["<C-t>"] = open_with_trouble,
+          },
+          n = {
+            ["<esc>"] = require("telescope.actions").close, -- Close directly on Esc vs entering normal mode
+            ["<C-q>"] = require("telescope.actions").smart_send_to_qflist + require("telescope.actions").open_qflist,
+            ["<C-t>"] = open_with_trouble,
           },
         },
       },

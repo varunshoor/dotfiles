@@ -1,5 +1,8 @@
 # TIP: for a full list of active aliases, run `alias
 
+# Remove unnecessary aliases created by snippets and plugins
+unalias gow
+
 # Tmux
 alias mux="tmuxinator"
 

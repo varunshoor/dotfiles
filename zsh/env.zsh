@@ -9,3 +9,6 @@ export SAVEHIST=$HISTSIZE                        # Maximum events stored in hist
 # Stop autocorrect from suggesting undesired completions
 export CORRECT_IGNORE_FILE=".*"
 export CORRECT_IGNORE="_*"
+
+# Source the Env Variables from Home
+source ~/.envrc

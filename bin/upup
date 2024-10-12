@@ -50,13 +50,18 @@ header "Run following commands manually to update ZSH Plugins..."
 echo "Run: zinit self-update"
 echo "Run: zinit update"
 
-# Oh My Posh
-header "Updating Oh My Posh..."
-oh-my-posh upgrade
-
 # Homebrew
 header "Updating Homebrew packages..."
 brew update
+
+# Oh My Posh
+# Temporarily removed it as this should be updated using homebrew
+header "Updating Oh My Posh..."
+brew upgrade oh-my-posh
+# oh-my-posh upgrade
+
+# Homebrew
+header "Upgrading all homebrew packages..."
 brew upgrade
 brew cleanup
 brew doctor

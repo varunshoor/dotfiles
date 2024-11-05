@@ -202,6 +202,13 @@ api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   end,
 })
 
+api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { ".env" },
+  callback = function()
+    vim.bo.filetype = "env"
+  end,
+})
+
 -- Makefiles require actual tabs
 vim.cmd("au FileType make setlocal noexpandtab")
 

@@ -101,7 +101,9 @@ vim.keymap.set({ "i" }, "<S-Del>", "<ESC>ddi")
 keymap.set("n", "<BS>", "<C-^>")
 
 -- Delete buffer
-keymap.set("n", "<leader>z", LazyVim.ui.bufremove)
+keymap.set("n", "<leader>z", function()
+  Snacks.bufdelete()
+end, { desc = "Delete Buffer" })
 
 -- Don't yank on delete char
 -- 17 Sep 23: Commented this so that cut functionalit

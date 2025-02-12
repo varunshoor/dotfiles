@@ -98,9 +98,9 @@ zinit snippet OMZP::node
 zinit snippet OMZP::golang
 zinit snippet OMZP::gradle
 zinit snippet OMZP::terraform
-zinit snippet OMZP::gh
+# zinit snippet OMZP::gh
 zinit snippet OMZP::microk8s
-zinit snippet OMZP::minikube
+# zinit snippet OMZP::minikube
 zinit snippet OMZP::nats
 zinit snippet OMZP::postgres
 zinit snippet OMZP::react-native
@@ -108,8 +108,8 @@ zinit snippet OMZP::tmuxinator
 zinit snippet OMZP::tmux
 zinit snippet OMZP::pip
 zinit snippet OMZP::sudo
-zinit snippet OMZP::doctl
-zinit snippet OMZP::fnm
+# zinit snippet OMZP::doctl
+# zinit snippet OMZP::fnm
 
 # Causes
 # Error: The compinit function hasn't been loaded, cannot do compdef replay.

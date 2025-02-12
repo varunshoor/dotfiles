@@ -41,6 +41,17 @@ prepend "$HOME/.cargo/bin"
 # Add Python to $PATH
 prepend "$(brew --prefix)/opt/python/libexec/bin"
 
+# Add OpenJDK
+prepend "/opt/homebrew/opt/openjdk/bin"
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+
+# ZLib
+export LDFLAGS="-L/opt/homebrew/opt/zlib/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/zlib/include"
+
+# PIPX
+prepend "/Users/varunshoor/.local/bin"
+
 # Prevent it from being used accidentally elsewhere in the script or by other scripts
 unset prepend
 

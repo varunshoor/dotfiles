@@ -1,1 +1,1 @@
-{"contributes":{"snippets":[{"path":".\/all.json","language":["global"]},{"path":".\/prisma.json","language":["prisma"]},{"path":".\/typescript.json","language":["typescript"]}]},"name":"snippets","engines":{"vscode":"^1.11.0"}}
+{"name":"snippets","engines":{"vscode":"^1.11.0"},"contributes":{"snippets":[{"path":".\/all.json","language":["global"]},{"path":".\/prisma.json","language":["prisma"]},{"path":".\/typescript.json","language":["typescript"]},{"language":["lua"],"path":".\/lua.json"}]}}

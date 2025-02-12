@@ -162,6 +162,7 @@ local layoutConfig = {
 
 	["com.apple.Safari"] = focusWindowOnLeftHalfOnProDisplayAndFullScreenOnLaptop,
 	["com.electron.min"] = focusWindowOnLeftHalfOnProDisplayAndFullScreenOnLaptop,
+	["com.cron.electron"] = focusWindowOnLeftHalfOnProDisplayAndFullScreenOnLaptop,
 	["com.readdle.PDFExpert-Mac"] = focusWindowOnLeftHalfOnProDisplayAndFullScreenOnLaptop,
 	["com.jetbrains.WebStorm"] = focusWindowOnLeftHalfOnProDisplayAndFullScreenOnLaptop,
 	["com.google.Chrome"] = focusWindowOnLeftHalfOnProDisplayAndFullScreenOnLaptop,

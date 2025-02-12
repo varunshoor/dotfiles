@@ -1,5 +1,10 @@
 lastupdatecheck: 0
 recentrepos:
+    - /Users/varunshoor/bottomline/bottomlinevc/website
+    - /Users/varunshoor/bottomline/bottomlinevc/infra-website
+    - /Users/varunshoor/bottomline/bottomlinevc/infra-dns
+    - /Users/varunshoor/bottomline/bottomlinevc/infrastructure
+    - /Users/varunshoor/bottomline/bottomlinevc/infrakit
     - /Users/varunshoor/dotfiles
 startuppopupversion: 5
 lastversion: 0.45.2

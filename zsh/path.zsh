@@ -52,6 +52,9 @@ export CPPFLAGS="-I/opt/homebrew/opt/zlib/include"
 # PIPX
 prepend "/Users/varunshoor/.local/bin"
 
+# LazyGit
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # Prevent it from being used accidentally elsewhere in the script or by other scripts
 unset prepend
 

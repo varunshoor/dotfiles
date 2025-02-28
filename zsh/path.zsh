@@ -29,15 +29,6 @@ prepend "$HOME/dotfiles/bin"
 # User binaries
 prepend "$HOME/bin"
 
-# Go Binaries
-prepend "$HOME/go/bin"
-
-# Go Bin Setup
-export GOBIN="/Users/varunshoor/go/bin"
-
-# Cargo
-prepend "$HOME/.cargo/bin"
-
 # Add Python to $PATH
 prepend "$(brew --prefix)/opt/python/libexec/bin"
 
@@ -51,6 +42,16 @@ export CPPFLAGS="-I/opt/homebrew/opt/zlib/include"
 
 # PIPX
 prepend "/Users/varunshoor/.local/bin"
+
+# Go Binaries
+prepend "$HOME/go/bin"
+
+# Go Bin Setup
+export GOBIN="/Users/varunshoor/go/bin"
+
+# Cargo
+prepend "$HOME/.cargo/bin"
+
 
 # LazyGit
 export XDG_CONFIG_HOME="$HOME/.config"

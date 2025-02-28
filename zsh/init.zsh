@@ -111,6 +111,9 @@ zinit snippet OMZP::sudo
 # zinit snippet OMZP::doctl
 # zinit snippet OMZP::fnm
 
+# Load Atuin for Shell History
+zinit load atuinsh/atuin
+
 # Causes
 # Error: The compinit function hasn't been loaded, cannot do compdef replay.
 # zinit ice atload"zpcdreplay" atclone"./zplug.zsh" atpull"%atclone"

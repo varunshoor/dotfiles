@@ -7,3 +7,6 @@ vim.g.mapleader = "\\"
 vim.g.maplocalleader = "\\"
 
 vim.g.user_emmet_leader_key = "<C-l>"
+
+-- Disable Snacks Animate
+vim.g.snacks_animate = false

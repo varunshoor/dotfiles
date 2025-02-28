@@ -158,6 +158,7 @@ local layoutConfig = {
 	["com.anthropic.claudefordesktop"] = focusWindowOnRightHalfOnAllDisplays,
 
 	["net.shinyfrog.bear"] = focusWindowOnRightHalfOnAllDisplays,
+	["com.tinyspeck.slackmacgap"] = focusWindowOnRightHalfOnAllDisplays,
 	["WhatsApp"] = focusWindowOnRightHalfOnProDisplayAndFullScreenOnLaptop,
 
 	["com.apple.Safari"] = focusWindowOnLeftHalfOnProDisplayAndFullScreenOnLaptop,

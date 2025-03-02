@@ -1,5 +1,12 @@
 lastupdatecheck: 0
 recentrepos:
+    - /Users/varunshoor/bottomline/gslash/gto-worker
+    - /Users/varunshoor/bottomline/gslash/backend
+    - /Users/varunshoor/bottomline/johari/infra-website
+    - /Users/varunshoor/bottomline/bottomlinevc/infra-dns
+    - /Users/varunshoor/bottomline/johari/infra-dns
+    - /Users/varunshoor/bottomline/johari/infrastructure
+    - /Users/varunshoor/mac-setup
     - /Users/varunshoor/dotfiles
     - /Users/varunshoor/bottomline/stonkquant/market
     - /Users/varunshoor/bottomline/stonkquant/lab
@@ -7,10 +14,7 @@ recentrepos:
     - /Users/varunshoor/bottomline/gslash/infrastructure
     - /Users/varunshoor/bottomline/bottomlinevc/infrakit
     - /Users/varunshoor/bottomline/gslash/frontend
-    - /Users/varunshoor/bottomline/gslash/gto-worker
-    - /Users/varunshoor/bottomline/gslash/backend
     - /Users/varunshoor/bottomline/gslash/database
-    - /Users/varunshoor/mac-setup
     - /Users/varunshoor/bottomline/nametrust/infra-website
     - /Users/varunshoor/bottomline/nametrust/infra-dns
     - /Users/varunshoor/bottomline/nametrust/infrastructure
@@ -26,7 +30,6 @@ recentrepos:
     - /Users/varunshoor/bottomline/gslash/infra-dns
     - /Users/varunshoor/bottomline/bottomlinevc/website
     - /Users/varunshoor/bottomline/bottomlinevc/infra-website
-    - /Users/varunshoor/bottomline/bottomlinevc/infra-dns
     - /Users/varunshoor/bottomline/bottomlinevc/infrastructure
 startuppopupversion: 5
 lastversion: 0.47.2

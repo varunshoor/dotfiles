@@ -1,7 +1,7 @@
-# /Users/varunshoor/.config/tmuxinator/gslash/infra-frontend.yml
+# /Users/varunshoor/.config/tmuxinator/goto/frontend.yml
 
-name: gslash/infra-frontend
-root: ~/bottomline/gslash/infra-frontend
+name: goto/frontend
+root: ~/bottomline/goto/frontend
 
 windows:
   - nvim:
@@ -12,3 +12,8 @@ windows:
         - pnpm test:coverage
   - console:
   - git: lazygit
+  - servers:
+      layout: even-vertical
+      panes:
+        - pnpm run dev
+        -

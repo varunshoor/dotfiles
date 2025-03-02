@@ -1,7 +1,7 @@
-# /Users/varunshoor/.config/tmuxinator/gslash/gto-worker.yml
+# /Users/varunshoor/.config/tmuxinator/goto/gto-worker.yml
 
-name: gslash/gto-worker
-root: ~/bottomline/gslash/gto-worker
+name: goto/gto-worker
+root: ~/bottomline/goto/gto-worker
 
 windows:
   - nvim:

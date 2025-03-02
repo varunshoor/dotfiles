@@ -1,7 +1,7 @@
-# /Users/varunshoor/.config/tmuxinator/gslash/infra-backend.yml
+# /Users/varunshoor/.config/tmuxinator/goto/infra-dns.yml
 
-name: gslash/infra-backend
-root: ~/bottomline/gslash/infra-backend
+name: goto/infra-dns
+root: ~/bottomline/goto/infra-dns
 
 windows:
   - nvim:

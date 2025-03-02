@@ -1,7 +1,7 @@
-# /Users/varunshoor/.config/tmuxinator/gslash/backend.yml
+# /Users/varunshoor/.config/tmuxinator/goto/backend.yml
 
-name: gslash/backend
-root: ~/bottomline/gslash/backend
+name: goto/backend
+root: ~/bottomline/goto/backend
 
 windows:
   - nvim:

@@ -1,7 +1,7 @@
-# /Users/varunshoor/.config/tmuxinator/gslash/infra-website.yml
+# /Users/varunshoor/.config/tmuxinator/goto/infrastructure.yml
 
-name: gslash/infra-website
-root: ~/bottomline/gslash/infra-website
+name: goto/infrastructure
+root: ~/bottomline/goto/infrastructure
 
 windows:
   - nvim:

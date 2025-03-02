@@ -1,7 +1,7 @@
-# /Users/varunshoor/.config/tmuxinator/gslash/database.yml
+# /Users/varunshoor/.config/tmuxinator/goto/database.yml
 
-name: gslash/database
-root: ~/bottomline/gslash/database
+name: goto/database
+root: ~/bottomline/goto/database
 
 windows:
   - nvim:

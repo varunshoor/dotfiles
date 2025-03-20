@@ -15,4 +15,4 @@ windows:
       layout: even-vertical
       panes:
         - pnpm slicemachine
-        - pnpm dev
+        - pnpm next:dev

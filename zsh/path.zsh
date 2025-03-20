@@ -20,6 +20,9 @@ homebrew_path="/opt/homebrew"
 prepend "$homebrew_path/bin"
 prepend "$homebrew_path/sbin"
 
+# libpq for psql etc.
+prepend "$homebrew_path/opt/libpq/bin"
+
 # fnm, Node version manager: https://github.com/Schniz/fnm
 eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
 

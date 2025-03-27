@@ -48,6 +48,7 @@ open raycast://extensions/raycast/raycast/check-for-extension-updates
 # npm
 header "Updating global npm modules..."
 pnpm update -g
+claude update
 echo
 
 # zsh

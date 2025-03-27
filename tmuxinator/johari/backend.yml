@@ -9,7 +9,7 @@ windows:
       panes:
         - nvim .
         -
-        - gow test -v ./...
+        - watchexec "go test -cover -json ./... | tparse -all"
         - air
   - console:
   - git: lazygit

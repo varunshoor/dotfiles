@@ -11,5 +11,5 @@ windows:
         -
   - console:
   - git: lazygit
-  - production: harlequin --theme tango -a postgres $DB_URL
-  - local: harlequin --theme tango -a postgres $DB_URL_DEV
+  - production: harlequin --theme solarized-light -a postgres $DB_URL
+  - local: harlequin --theme solarized-light -a postgres $DB_URL_DEV

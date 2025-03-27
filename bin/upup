@@ -35,6 +35,11 @@ header "Updating macOS system..."
 sudo softwareupdate -ia --verbose
 echo
 
+header "Updating Mac App Store Apps..."
+mas outdated
+mas upgrade
+echo
+
 # Raycast
 header "Updating Raycast and its extensions..."
 open raycast://extensions/raycast/raycast/check-for-updates

@@ -14,4 +14,3 @@ export PATH="/Users/varunshoor/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 source ~/.config/zsh/end.zsh
-

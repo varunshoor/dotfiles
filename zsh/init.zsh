@@ -26,16 +26,24 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
+# ATUIN
+zinit light atuinsh/atuin
+
 # AUTOSUGGESTIONS, TRIGGER PRECMD HOOK UPON LOAD
+# The order is important, this should appear after atuin loading
+ZSH_AUTOSUGGEST_STRATEGY=history
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#837a72"
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 zinit ice wait="0a" lucid atload="_zsh_autosuggest_start"
 zinit light zsh-users/zsh-autosuggestions
 
 # HISTORY SUBSTRING SEARCHING
-zinit ice wait"0b" lucid atload'bindkey "$terminfo[kcuu1]" history-substring-search-up; bindkey "$terminfo[kcud1]" history-substring-search-down'
+zinit ice wait"0b" lucid atload'bindkey "$terminfo[kcud1]" history-substring-search-down'
 zinit light zsh-users/zsh-history-substring-search
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+
+# Don't bind Up Arrow - reserved for Atuin
+# bindkey '^[[A' history-substring-search-up
+# bindkey '^[[B' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
@@ -98,9 +106,9 @@ zinit snippet OMZP::node
 zinit snippet OMZP::golang
 zinit snippet OMZP::gradle
 zinit snippet OMZP::terraform
-# zinit snippet OMZP::gh
+zinit snippet OMZP::gh
 zinit snippet OMZP::microk8s
-# zinit snippet OMZP::minikube
+zinit snippet OMZP::minikube
 zinit snippet OMZP::nats
 zinit snippet OMZP::postgres
 zinit snippet OMZP::react-native
@@ -108,11 +116,8 @@ zinit snippet OMZP::tmuxinator
 zinit snippet OMZP::tmux
 zinit snippet OMZP::pip
 zinit snippet OMZP::sudo
-# zinit snippet OMZP::doctl
-# zinit snippet OMZP::fnm
-
-# Load Atuin for Shell History
-zinit load atuinsh/atuin
+zinit snippet OMZP::doctl
+zinit snippet OMZP::fnm
 
 # Causes
 # Error: The compinit function hasn't been loaded, cannot do compdef replay.

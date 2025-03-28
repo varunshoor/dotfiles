@@ -4,3 +4,7 @@ then
     tmuxinator start workspace
 fi
 
+# Load yabai
+sudo yabai --load-sa
+yabai --start-service
+skhd --start-service

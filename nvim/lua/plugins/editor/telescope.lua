@@ -72,6 +72,36 @@ return {
     {
       ";d",
       function()
+        local actions = require("telescope.actions")
+        local action_state = require("telescope.actions.state")
+
+        require("telescope.builtin").find_files({
+          prompt_title = "Select Directory for Diff",
+          cwd = vim.fn.expand("~"),
+          hidden = true,
+          find_command = { "fd", "--type", "d", "--exclude", ".*", "--max-depth", "3", "." },
+          attach_mappings = function(prompt_bufnr, map)
+            actions.select_default:replace(function()
+              actions.close(prompt_bufnr)
+              local selection = action_state.get_selected_entry()
+              if selection then
+                local selected_dir = vim.fn.expand("~") .. "/" .. selection[1]
+                -- Now use the selected directory for diff
+                require("telescope").extensions.diff.diff_current({
+                  cwd = selected_dir,
+                })
+              end
+            end)
+            return true
+          end,
+        })
+      end,
+      desc = "Compare file outside of project",
+    },
+
+    {
+      ";D",
+      function()
         local project_root = vim.fn.getcwd()
         require("telescope").extensions.diff.diff_current({
           hidden = true,
@@ -79,17 +109,6 @@ return {
         })
       end,
       desc = "Compare current file",
-    },
-
-    {
-      ";D",
-      function()
-        require("telescope").extensions.diff.diff_files({
-          hidden = true,
-          cwd = vim.fn.expand("~/"),
-        })
-      end,
-      desc = "Compare file outside of project",
     },
 
     -- Resume

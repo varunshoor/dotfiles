@@ -1,12 +1,12 @@
 lastupdatecheck: 0
 recentrepos:
-    - /Users/varunshoor/dotfiles
-    - /Users/varunshoor/mac-setup
+    - /Users/varunshoor/bottomline/johari/backend
     - /Users/varunshoor/bottomline/goto/backend
+    - /Users/varunshoor/mac-setup
+    - /Users/varunshoor/dotfiles
     - /Users/varunshoor/bottomline/johari/database
     - /Users/varunshoor/bottomline/goto/database
     - /Users/varunshoor/bottomline/johari/infra-backend
-    - /Users/varunshoor/bottomline/johari/backend
     - /Users/varunshoor/bottomline/johari/website
     - /Users/varunshoor/bottomline/bottomlinevc/website
     - /Users/varunshoor/bottomline/johari/infra-website

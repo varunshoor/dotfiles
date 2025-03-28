@@ -72,9 +72,10 @@ return {
     {
       ";d",
       function()
+        local project_root = vim.fn.getcwd()
         require("telescope").extensions.diff.diff_current({
           hidden = true,
-          cwd = "~/bottomline/",
+          cwd = project_root,
         })
       end,
       desc = "Compare current file",
@@ -85,10 +86,10 @@ return {
       function()
         require("telescope").extensions.diff.diff_files({
           hidden = true,
-          cwd = "~/bottomline/",
+          cwd = vim.fn.expand("~/"),
         })
       end,
-      desc = "Compare two different files",
+      desc = "Compare file outside of project",
     },
 
     -- Resume

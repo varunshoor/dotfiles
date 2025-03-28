@@ -69,6 +69,13 @@ keymap.set("n", special_escape_leader .. "TN", "<Cmd>$tabnew<CR>", { noremap = t
 keymap.set("i", special_escape_leader .. "TN", "<Cmd>$tabnew<CR>", { noremap = true, silent = true })
 keymap.set("v", special_escape_leader .. "TN", "<Cmd>$tabnew<CR>", { noremap = true, silent = true })
 
+-- Numbered Tab Navigation
+keymap.set("n", special_escape_leader .. "T1", "1gt<CR>", { noremap = true, silent = true })
+keymap.set("n", special_escape_leader .. "T2", "2gt<CR>", { noremap = true, silent = true })
+keymap.set("n", special_escape_leader .. "T3", "3gt<CR>", { noremap = true, silent = true })
+keymap.set("n", special_escape_leader .. "T4", "4gt<CR>", { noremap = true, silent = true })
+keymap.set("n", special_escape_leader .. "T5", "5gt<CR>", { noremap = true, silent = true })
+
 -- Comment in all modes using Cmd+/
 keymap.set({ "i" }, special_escape_leader .. "/", "<ESC>gcci", { remap = true })
 keymap.set({ "n" }, special_escape_leader .. "/", "gcc", { remap = true })

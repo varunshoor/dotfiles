@@ -1,7 +1,7 @@
-# /Users/varunshoor/.config/tmuxinator/nametrust/epp.yml
+# /Users/varunshoor/.config/tmuxinator/goto/infra-app.yml
 
-name: nametrust/epp
-root: ~/bottomline/nametrust/epp
+name: goto/infra-app
+root: ~/bottomline/goto/infra-app
 
 windows:
   - nvim:
@@ -9,6 +9,6 @@ windows:
       panes:
         - nvim .
         -
-        - watchexec "go test -cover -json ./... | tparse -all"
+        - pnpm test:coverage
   - console:
   - git: lazygit

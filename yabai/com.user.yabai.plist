@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.user.yabai</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/varunshoor/dotfiles/yabai/start.sh</string>
+    </array>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/Users/varunshoor/.local/share/zinit/plugins/eth-p---bat-extras/src:/Users/varunshoor/.local/share/zinit/plugins/ajeetdsouza---zoxide:/Users/varunshoor/.rd/bin:/Users/varunshoor/Library/pnpm:/Users/varunshoor/go/bin:/Users/varunshoor/.local/bin:/opt/homebrew/opt/openjdk/bin:/opt/homebrew/opt/python/libexec/bin:/Users/varunshoor/dotfiles/bin:/Users/varunshoor/.local/state/fnm_multishells/2736_1743171486369/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/sbin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    </dict>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <dict>
+        <key>SuccessfulExit</key>
+ 	     <false/>
+ 	     <key>Crashed</key>
+ 	     <true/>
+    </dict>
+    <key>StandardOutPath</key>
+    <string>/tmp/yabai_varunshoor.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/yabai_varunshoor.err.log</string>
+    <key>ProcessType</key>
+    <string>Interactive</string>
+    <key>Nice</key>
+    <integer>-20</integer>
+</dict>
+</plist>
+

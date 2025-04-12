@@ -27,24 +27,6 @@ keymap.set("n", "<Leader><Leader>", ":w<CR>", { noremap = true })
 -- all occurrences
 vim.keymap.set("n", "<Leader>*", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { silent = false })
 vim.keymap.set("n", "<Leader>?", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { silent = false })
--- Zoom and Zoom Out like Tmux
-if vim.g.zoomed_state == nil then
-  vim.g.zoomed_state = false
-end
-
-vim.toggle_zoom = function()
-  if vim.g.zoomed_state then
-    vim.cmd("Neotree action=show toggle=true")
-    vim.cmd("wincmd =") -- Reset window size
-  else
-    vim.cmd("Neotree toggle")
-    vim.cmd("wincmd _") -- Maximize window vertically
-    vim.cmd("wincmd |") -- Maximize window horizontally
-  end
-  -- Toggle the zoom state
-  vim.g.zoomed_state = not vim.g.zoomed_state
-end
-keymap.set("n", "<C-w>m", ":lua vim.toggle_zoom()<CR>", { noremap = true, silent = true })
 
 -- Indent and Unindent
 keymap.set("i", "<M-,>", "<C-d>", { remap = true })
@@ -129,8 +111,11 @@ keymap.set("n", "dd", '"_dd')
 -- Don't yank on cc
 keymap.set("n", "cc", '"_cc')
 
--- Don't yank on visual paste
-keymap.set("v", "p", '"_dP')
+-- Don't yank on paste (both visual and normal mode)
+keymap.set("v", "p", '"_dp', { desc = "Paste without yanking (visual)" })
+keymap.set("v", "P", '"_dP', { desc = "Paste without yanking (visual)" })
+keymap.set("n", "p", "p", { desc = "Normal paste" }) -- Reset to default behavior
+keymap.set("n", "P", "P", { desc = "Normal paste before cursor" }) -- Reset to default behavior
 
 -- To clear the newly added comment when using Ctrl+Enter
 -- keymap.set("i", "<C-CR>", "<CR><C-u>") -- Doesn't work, why?

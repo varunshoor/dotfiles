@@ -225,6 +225,10 @@ keymap.set("i", "<C-z>", "<Esc>ui")
 keymap.set("n", "<M-Backspace>", "db")
 keymap.set("i", "<M-Backspace>", "<C-W>")
 
+-- Single-press indent/outdent in normal mode
+keymap.set("n", "<", "<<", { desc = "Outdent line" })
+keymap.set("n", ">", ">>", { desc = "Indent line" })
+
 -- tabs
 vim.api.nvim_set_keymap("n", "<leader>ta", "<Cmd>$tabnew<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>tc", "<Cmd>tabclose<CR>", { noremap = true, silent = true })

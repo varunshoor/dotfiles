@@ -1,9 +1,9 @@
 lastupdatecheck: 0
 recentrepos:
+    - /Users/varunshoor/dotfiles
     - /Users/varunshoor/bottomline/goto/website
     - /Users/varunshoor/mac-setup
     - /Users/varunshoor/bottomline/nametrust/xml
-    - /Users/varunshoor/dotfiles
     - /Users/varunshoor/bottomline/goto/backend
     - /Users/varunshoor/bottomline/goto/infra-app
     - /Users/varunshoor/bottomline/nametrust/epp
@@ -40,7 +40,7 @@ recentrepos:
     - /Users/varunshoor/bottomline/stonkquant/market
     - /Users/varunshoor/bottomline/stonkquant/lab
 startuppopupversion: 5
-lastversion: 0.48.0
+lastversion: 0.49.0
 customcommandshistory: []
 hidecommandlog: false
 ignorewhitespaceindiffview: false

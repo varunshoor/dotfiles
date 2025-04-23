@@ -1,12 +1,12 @@
 lastupdatecheck: 0
 recentrepos:
     - /Users/varunshoor/dotfiles
-    - /Users/varunshoor/bottomline/goto/website
+    - /Users/varunshoor/bottomline/nametrust/epp
     - /Users/varunshoor/mac-setup
+    - /Users/varunshoor/bottomline/goto/website
     - /Users/varunshoor/bottomline/nametrust/xml
     - /Users/varunshoor/bottomline/goto/backend
     - /Users/varunshoor/bottomline/goto/infra-app
-    - /Users/varunshoor/bottomline/nametrust/epp
     - /Users/varunshoor/bottomline/goto/gto-worker
     - /Users/varunshoor/bottomline/goto/infra-frontend
     - /Users/varunshoor/bottomline/goto/infra-backend

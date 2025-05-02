@@ -99,9 +99,6 @@ command_exists() {
 # Bat: https://github.com/sharkdp/bat
 command_exists bat && alias cat="bat --style=plain"
 
-# Fd: https://github.com/sharkdp/fd
-command_exists fd && alias find="fd"
-
 # Eza: https://eza.rocks/
 # Display all clickable entries (incl. hidden files) as a grid with icons
 command_exists eza && alias ls="eza -a --hyperlink --icons=auto --group-directories-first --color-scale-mode=fixed -g --time-style=long-iso"

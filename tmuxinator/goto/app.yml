@@ -1,0 +1,13 @@
+# /Users/varunshoor/.config/tmuxinator/goto/app.yml
+
+name: goto/app
+root: ~/bottomline/goto/app
+
+windows:
+  - nvim:
+      layout: 7d6d,231x66,0,0[231x55,0,0,42,231x10,0,56{178x10,0,56,45,52x10,179,56,91}]
+      panes:
+        - nvim .
+        -
+  - console:
+  - git: lazygit

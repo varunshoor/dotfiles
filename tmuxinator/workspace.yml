@@ -11,6 +11,18 @@ windows:
       panes:
         - nvim .
         -
+  - mux:
+      root: ~/dotfiles/tmuxinator
+      layout: 2644,231x66,0,0[231x57,0,0,103,231x8,0,58,104]
+      panes:
+        - nvim .
+        -
+  - kitty:
+      root: ~/dotfiles/kitty
+      layout: 2644,231x66,0,0[231x57,0,0,103,231x8,0,58,104]
+      panes:
+        - nvim .
+        -
   - zshrc:
       root: ~/dotfiles/zsh
       layout: 2644,231x66,0,0[231x57,0,0,103,231x8,0,58,104]

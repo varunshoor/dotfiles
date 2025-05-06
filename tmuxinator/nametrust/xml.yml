@@ -9,6 +9,6 @@ windows:
       panes:
         - nvim .
         -
-        - watchexec "go test -cover -json ./... | tparse -all"
+        - watchexec "go test -cover -race -json ./... | tparse -all"
   - console:
   - git: lazygit

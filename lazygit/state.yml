@@ -1,10 +1,12 @@
 lastupdatecheck: 0
 recentrepos:
     - /Users/varunshoor/dotfiles
+    - /Users/varunshoor/bottomline/goto/infra-frontend
+    - /Users/varunshoor/bottomline/goto/infra-app
+    - /Users/varunshoor/bottomline/goto/infra-backend
     - /Users/varunshoor/bottomline/nametrust/epp
     - /Users/varunshoor/noteworthy
     - /Users/varunshoor/bottomline/goto/app
-    - /Users/varunshoor/bottomline/goto/infra-app
     - /Users/varunshoor/bottomline/goto/infrastructure
     - /Users/varunshoor/bottomline/bottomlinevc/infrakit
     - /Users/varunshoor/mac-setup
@@ -12,8 +14,6 @@ recentrepos:
     - /Users/varunshoor/bottomline/nametrust/xml
     - /Users/varunshoor/bottomline/goto/backend
     - /Users/varunshoor/bottomline/goto/gto-worker
-    - /Users/varunshoor/bottomline/goto/infra-frontend
-    - /Users/varunshoor/bottomline/goto/infra-backend
     - /Users/varunshoor/bottomline/goto/infra-dns
     - /Users/varunshoor/bottomline/goto/infra-website
     - /Users/varunshoor/bottomline/goto/database
@@ -42,7 +42,7 @@ recentrepos:
     - /Users/varunshoor/bottomline/stonkquant/market
     - /Users/varunshoor/bottomline/stonkquant/lab
 startuppopupversion: 5
-lastversion: 0.49.0
+lastversion: 0.50.0
 customcommandshistory: []
 hidecommandlog: false
 ignorewhitespaceindiffview: false

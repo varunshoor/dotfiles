@@ -258,12 +258,3 @@ keymap.set("n", "<leader><tab>", "<cmd>$tabnew<cr>", { noremap = true, silent = 
 -- Unset the default terminal maps
 keymap.del("n", "<leader>ft")
 keymap.del("n", "<leader>fT")
-
--- Resize mode
-vim.keymap.set("n", "<C-w>r", require("smart-splits").start_resize_mode)
-
--- moving between splits
-vim.keymap.set("n", "<C-Left>", require("smart-splits").move_cursor_left, { silent = true, noremap = true })
-vim.keymap.set("n", "<C-Down>", require("smart-splits").move_cursor_down, { silent = true, noremap = true })
-vim.keymap.set("n", "<C-Up>", require("smart-splits").move_cursor_up, { silent = true, noremap = true })
-vim.keymap.set("n", "<C-Right>", require("smart-splits").move_cursor_right, { silent = true, noremap = true })

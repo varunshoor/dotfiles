@@ -1,5 +1,6 @@
 lastupdatecheck: 0
 recentrepos:
+    - /Users/varunshoor/mac-setup
     - /Users/varunshoor/dotfiles
     - /Users/varunshoor/bottomline/nametrust/epp
     - /Users/varunshoor/bottomline/goto/infra-website
@@ -12,7 +13,6 @@ recentrepos:
     - /Users/varunshoor/bottomline/goto/backend
     - /Users/varunshoor/bottomline/goto/frontend
     - /Users/varunshoor/bottomline/goto/infra-frontend
-    - /Users/varunshoor/mac-setup
     - /Users/varunshoor/noteworthy
     - /Users/varunshoor/bottomline/goto/app
     - /Users/varunshoor/bottomline/goto/website

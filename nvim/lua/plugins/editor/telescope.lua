@@ -28,9 +28,26 @@ return {
       }),
       desc = "Find in Files (Grep)",
     },
-    { ";G", LazyVim.pick("live_grep"), desc = "Find in Files (Grep) in CWD" },
+    {
+      ";G",
+      function()
+        require("telescope.builtin").live_grep({
+          cwd = vim.fn.expand("%:p:h"), -- Use the directory of the current file
+        })
+      end,
+      desc = "Find in Files (Grep) in current file's directory",
+    },
     { ";w", LazyVim.pick("grep_string"), desc = "Word (root dir)" },
-    { ";W", LazyVim.pick("grep_string", { cwd = false }), desc = "Word (CWD dir)" },
+    {
+      ";W",
+      function()
+        require("telescope.builtin").grep_string({
+          cwd = vim.fn.expand("%:p:h"), -- Use the directory of the current file
+          search = vim.fn.expand("<cword>"),
+        })
+      end,
+      desc = "Word under cursor (current file's dir)",
+    },
     {
       ";f",
       function()

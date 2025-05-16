@@ -6,6 +6,7 @@ return {
   event = "VeryLazy",
   version = false, -- Never set this value to "*"! Never!
   opts = {
+    mode = "legacy",
     claude = {
       disable_tools = true,
     },

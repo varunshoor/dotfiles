@@ -12,12 +12,14 @@ return {
       ":'<,'>Gist<cr>",
       mode = "v",
       desc = "Create Gist from Selection",
+      silent = true,
     },
     {
       "<leader>gg",
       ":Gist<cr>",
       mode = "n",
       desc = "Create Gist from File",
+      silent = true,
     },
   },
 }

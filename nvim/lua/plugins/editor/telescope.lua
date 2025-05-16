@@ -151,6 +151,9 @@ return {
 
     -- todo
     { ";x", "<cmd>TodoTelescope<cr>", desc = "Todo" },
+
+    -- harpoon
+    { ";h", "<cmd>Telescope harpoon marks<cr>", desc = "Harpoon" },
   },
   opts = function()
     return {
@@ -218,6 +221,7 @@ return {
     telescope.load_extension("project")
     telescope.load_extension("repo")
     telescope.load_extension("diff")
+    telescope.load_extension("harpoon")
 
     vim.keymap.set("n", ";<space>", function()
       telescope.extensions.file_browser.file_browser({

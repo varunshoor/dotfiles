@@ -10,7 +10,21 @@ return {
         "SmiteshP/nvim-navic",
         "MunifTanjim/nui.nvim",
       },
-      opts = { lsp = { auto_attach = true } },
+      config = function()
+        local actions = require("nvim-navbuddy.actions")
+
+        require("nvim-navbuddy").setup({
+          lsp = { auto_attach = true },
+          window = {
+            size = "75%",
+            border = "rounded",
+          },
+          mappings = {
+            ["<Left>"] = actions.parent(),
+            ["<Right>"] = actions.children(),
+          },
+        })
+      end,
     },
   },
   keys = {

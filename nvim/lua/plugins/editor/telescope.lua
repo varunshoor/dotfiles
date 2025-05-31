@@ -15,6 +15,7 @@ return {
     { "nvim-telescope/telescope-project.nvim" },
     { "cljoly/telescope-repo.nvim" },
     { "jemag/telescope-diff.nvim" },
+    { "albenisolmos/telescope-oil.nvim" },
   },
   keys = {
     { ";b", LazyVim.pick("buffers", { sort_mru = true }), desc = "Switch Buffer" },
@@ -149,6 +150,9 @@ return {
     -- Tabs
     { ";t", "<cmd>Telescope telescope-tabs list_tabs<cr>", desc = "Tabs" },
 
+    -- Oil
+    { ";o", "<cmd>Telescope oil<cr>", desc = "Oil" },
+
     -- todo
     { ";x", "<cmd>TodoTelescope<cr>", desc = "Todo" },
 
@@ -222,6 +226,7 @@ return {
     telescope.load_extension("repo")
     telescope.load_extension("diff")
     telescope.load_extension("harpoon")
+    telescope.load_extension("oil")
 
     vim.keymap.set("n", ";<space>", function()
       telescope.extensions.file_browser.file_browser({

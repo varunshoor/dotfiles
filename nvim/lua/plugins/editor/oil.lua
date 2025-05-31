@@ -10,9 +10,15 @@ return {
       view_options = {
         -- Show files and directories that start with "."
         show_hidden = true,
+        is_hidden_file = function(name, bufnr)
+          local m = name:match("^%.")
+          return m ~= nil
+        end,
       },
       keymaps = {
         ["<Esc>"] = "actions.close",
+        ["q"] = "actions.close",
+        ["b"] = { "actions.parent", mode = "n" },
       },
     })
 

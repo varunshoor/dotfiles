@@ -9,6 +9,7 @@ return {
     mode = "legacy",
     claude = {
       disable_tools = true,
+      model = "claude-sonnet-4-20250514",
     },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`

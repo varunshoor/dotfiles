@@ -79,7 +79,7 @@ vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
-  pattern = { "*.*" },
+  pattern = { "*.*", "*" },
   callback = function()
     if vim.g.is_closing_buffer then
       vim.g.is_closing_buffer = false
@@ -187,7 +187,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
       -- We don't have any test files, check if we have an existing window with test case
       -- If we do, that means its a relic of an old file that needs to be closed
       -- This is scoped to the main window to prevent popups from closing test windows
-      if target_win and orig_winnum == 2 then
+      if target_win then
         vim.api.nvim_win_close(target_win, false)
       end
     end

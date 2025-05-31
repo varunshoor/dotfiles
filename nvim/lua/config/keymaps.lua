@@ -28,6 +28,11 @@ keymap.set("n", "<Leader><Leader>", ":w<CR>", { noremap = true })
 vim.keymap.set("n", "<Leader>*", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { silent = false })
 vim.keymap.set("n", "<Leader>?", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { silent = false })
 
+-- LSP
+-- <C-/> is often interpreted as <C-_> in terminals
+keymap.set("i", "<C-/>", vim.lsp.buf.signature_help, { desc = "Show LSP signature help", remap = true })
+keymap.set("i", "<C-_>", vim.lsp.buf.signature_help, { desc = "Show LSP signature help", remap = true })
+
 -- Indent and Unindent
 keymap.set("i", "<M-,>", "<C-d>", { remap = true })
 keymap.set("i", "<M-.>", "<C-t>", { remap = true })

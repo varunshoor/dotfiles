@@ -48,6 +48,7 @@ return {
         leave_dirs_open = true,
       },
       use_libuv_file_watcher = true,
+      hijack_netrw_behavior = "disabled",
     },
   },
 }

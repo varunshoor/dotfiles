@@ -130,7 +130,10 @@ return {
     },
 
     -- Resume
-    { ";'", "<cmd>Telescope resume<cr>", desc = "Resume" },
+    { ";RR", "<cmd>Telescope resume<cr>", desc = "Resume" },
+
+    -- Notifications
+    { ";n", "<cmd>Telescope notify<cr>", desc = "Notifications" },
 
     -- git
     { ";Rc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
@@ -227,6 +230,7 @@ return {
     telescope.load_extension("diff")
     telescope.load_extension("harpoon")
     telescope.load_extension("oil")
+    telescope.load_extension("notify")
 
     vim.keymap.set("n", ";<space>", function()
       telescope.extensions.file_browser.file_browser({

@@ -86,6 +86,12 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
       return
     end
 
+    -- Skip if current window is a floating window
+    local win_config = vim.api.nvim_win_get_config(0)
+    if win_config.relative ~= "" then
+      return
+    end
+
     local path = vim.fn.expand("%:p:h") .. "/"
     local filename = vim.fn.expand("%:t:r")
     local extension = vim.fn.expand("%:e")

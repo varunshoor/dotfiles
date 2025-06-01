@@ -3,4 +3,7 @@ return {
   keys = {
     { "<leader>n", false },
   },
+  opts = {
+    notifier = { enabled = false },
+  },
 }

@@ -47,15 +47,22 @@ local function find_test_window()
 end
 
 -- Function to find a window with a specific file
-local function find_window_with_file(target_file)
+local function find_window_with_file(target_file, ignore_win)
   local windows = vim.api.nvim_list_wins()
   for _, win in ipairs(windows) do
+    -- Skip the window we want to ignore
+    if ignore_win and win == ignore_win then
+      goto continue
+    end
+
     local buf = vim.api.nvim_win_get_buf(win)
     local full_bufname = vim.api.nvim_buf_get_name(buf)
 
     if full_bufname == target_file then
       return win
     end
+
+    ::continue::
   end
   return nil
 end
@@ -196,7 +203,7 @@ vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
 -- Global variable to track if we're already processing a file navigation
 vim.g.processing_file_navigation = false
 
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   pattern = { "*.*", "*" },
   callback = function()
     -- Prevent duplicate execution
@@ -227,8 +234,13 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
     local filename = vim.fn.expand("%:t:r")
     local extension = vim.fn.expand("%:e")
 
+    -- require("notify")("Processing file navigation for: " .. filename, "info", { title = "File Navigation" })
+    local parent_win = nil
+
+    local isTestFile = is_test_file(filename)
+
     -- Handle entering a test buffer - load the main file if not already open
-    if is_test_file(filename) then
+    if isTestFile then
       local current_file = vim.fn.expand("%:p")
       local parent_files = get_parent_file_from_test(current_file)
       local orig_win = vim.api.nvim_get_current_win()
@@ -241,15 +253,14 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
           local full_bufname = vim.api.nvim_buf_get_name(buf)
           local bufname = vim.fn.fnamemodify(full_bufname, ":t")
 
-          -- Close if it's a test file but not the current one
-          if is_test_file(bufname) and full_bufname ~= current_file then
+          if is_test_file(bufname) then
+            -- require("notify")("Closing unrelated test file: " .. bufname, "info", { title = "File Navigation" })
             vim.api.nvim_win_close(win, false)
           end
         end
       end
 
       -- Look for a window that already has one of the parent files
-      local parent_win = nil
       local found_parent_file = nil
 
       for _, parent_file in ipairs(parent_files) do
@@ -271,6 +282,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
         -- Schedule the file opening to happen after the current autocmd finishes
         vim.schedule(function()
           -- Create a split to the left of the current window
+          -- require("notify")("Opening parent file: " .. found_parent_file, "info", { title = "Test File Navigation" })
           vim.cmd("leftabove vsplit")
           parent_win = vim.api.nvim_get_current_win()
 
@@ -299,6 +311,9 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
         vim.g.processing_file_navigation = false
       end
       return
+    else
+      local parent_file = vim.fn.expand("%:p")
+      parent_win = find_window_with_file(parent_file, vim.api.nvim_get_current_win())
     end
 
     local testfiles, hasTestFiles = get_test_files(path, filename, extension)
@@ -316,6 +331,12 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
           local target_bufname = vim.api.nvim_buf_get_name(target_buf)
           if target_bufname == testfile then
             foundTestFile = true
+
+            -- require("notify")(
+            --   "Test file already open: " .. vim.fn.fnamemodify(testfile, ":t"),
+            --   "info",
+            --   { title = "Test File Navigation" }
+            -- )
             break
           end
         end
@@ -330,6 +351,12 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
           end
 
           if target_win then
+            -- require("notify")(
+            --   "Opened test file: " .. vim.fn.fnamemodify(testfile, ":t"),
+            --   "info",
+            --   { title = "Test File Navigation" }
+            -- )
+
             vim.api.nvim_win_set_buf(target_win, vim.fn.bufadd(testfile))
             -- Dynamically set the filetype based on the test file's extension
             local file_ext = testfile:match("^.+(%..+)$")
@@ -350,10 +377,26 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
       -- it likely will be from an old file that was open earlier
       if not foundTestFile and target_win then
         vim.api.nvim_win_close(target_win, false)
+
+        -- require("notify")("No test files found for: " .. filename, "info", { title = "Test File Navigation" })
       end
 
       if foundTestFile then
         vim.api.nvim_set_current_win(orig_win)
+
+        -- We have set the target to current window, so if its a non test file,
+        -- it will open in current window and then open a split for a test file
+        -- If we already have an existing parent window, we need to close it
+        if not isTestFile and parent_win then
+          vim.api.nvim_win_close(parent_win, false)
+        end
+
+        -- require("notify")(
+        --   "Test file already exists.. setting target window to original window: "
+        --     .. vim.fn.fnamemodify(testfiles[1], ":t"),
+        --   "info",
+        --   { title = "Test File Navigation" }
+        -- )
       end
     else
       -- We don't have any test files, check if we have an existing window with test case
@@ -361,6 +404,12 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
       -- This is scoped to the main window to prevent popups from closing test windows
       if target_win then
         vim.api.nvim_win_close(target_win, false)
+
+        -- require("notify")(
+        --   "No test files found for, closing test split: " .. filename,
+        --   "info",
+        --   { title = "Test File Navigation" }
+        -- )
       end
     end
 

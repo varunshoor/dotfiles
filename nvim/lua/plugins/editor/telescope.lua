@@ -25,7 +25,7 @@ return {
         additional_args = function(opts)
           return { "--hidden" }
         end,
-        cwd = false,
+        cwd = vim.fn.getcwd(),
       }),
       desc = "Find in Files (Grep)",
     },
@@ -145,7 +145,179 @@ return {
 
     -- Symbols
     { ";s", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" },
-    { ";S", "<cmd>Telescope lsp_workspace_symbols<cr>", desc = "Workspace Symbols" },
+    {
+      ";S",
+      function()
+        local pickers = require("telescope.pickers")
+        local finders = require("telescope.finders")
+        local conf = require("telescope.config").values
+        local actions = require("telescope.actions")
+        local action_state = require("telescope.actions.state")
+        local utils = require("telescope.utils")
+        local entry_display = require("telescope.pickers.entry_display")
+
+        -- LSP symbol type highlights (following Telescope's pattern)
+        local lsp_type_highlight = {
+          File = "TelescopeResultsConstant",
+          Module = "TelescopeResultsConstant",
+          Namespace = "TelescopeResultsConstant",
+          Package = "TelescopeResultsConstant",
+          Class = "TelescopeResultsFunction",
+          Method = "TelescopeResultsMethod",
+          Property = "TelescopeResultsVariable",
+          Field = "TelescopeResultsVariable",
+          Constructor = "TelescopeResultsFunction",
+          Enum = "TelescopeResultsConstant",
+          Interface = "TelescopeResultsConstant",
+          Function = "TelescopeResultsFunction",
+          Variable = "TelescopeResultsVariable",
+          Constant = "TelescopeResultsConstant",
+          String = "TelescopeResultsString",
+          Number = "TelescopeResultsNumber",
+          Boolean = "TelescopeResultsConstant",
+          Array = "TelescopeResultsConstant",
+          Object = "TelescopeResultsConstant",
+          Key = "TelescopeResultsVariable",
+          Null = "TelescopeResultsConstant",
+          EnumMember = "TelescopeResultsConstant",
+          Struct = "TelescopeResultsConstant",
+          Event = "TelescopeResultsConstant",
+          Operator = "TelescopeResultsOperator",
+          TypeParameter = "TelescopeResultsConstant",
+        }
+
+        -- Function to get symbols from a buffer
+        local function get_buffer_symbols(bufnr)
+          local params = {
+            textDocument = vim.lsp.util.make_text_document_params(bufnr),
+          }
+
+          local results = {}
+          -- Use vim.lsp.get_clients instead of deprecated get_active_clients
+          local clients = vim.lsp.get_clients({ bufnr = bufnr })
+
+          for _, client in pairs(clients) do
+            if client.server_capabilities.documentSymbolProvider then
+              local response = client.request_sync("textDocument/documentSymbol", params, 5000, bufnr)
+              if response and response.result then
+                -- Flatten nested symbols (following Telescope's approach)
+                local function flatten_symbols(symbols, parent_name)
+                  local flattened = {}
+                  for _, symbol in ipairs(symbols) do
+                    local symbol_name = parent_name and (parent_name .. "." .. symbol.name) or symbol.name
+                    table.insert(flattened, {
+                      symbol = symbol,
+                      bufnr = bufnr,
+                      filename = vim.api.nvim_buf_get_name(bufnr),
+                      symbol_name = symbol_name,
+                    })
+
+                    -- Recursively flatten children
+                    if symbol.children then
+                      local children = flatten_symbols(symbol.children, symbol_name)
+                      for _, child in ipairs(children) do
+                        table.insert(flattened, child)
+                      end
+                    end
+                  end
+                  return flattened
+                end
+
+                local flattened = flatten_symbols(response.result)
+                for _, item in ipairs(flattened) do
+                  table.insert(results, item)
+                end
+              end
+            end
+          end
+
+          return results
+        end
+
+        -- Get all visible buffers
+        local visible_buffers = {}
+        for _, win in ipairs(vim.api.nvim_list_wins()) do
+          local buf = vim.api.nvim_win_get_buf(win)
+          if vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].buftype == "" then
+            visible_buffers[buf] = true
+          end
+        end
+
+        -- Collect symbols from all visible buffers
+        local all_symbols = {}
+        for bufnr, _ in pairs(visible_buffers) do
+          local symbols = get_buffer_symbols(bufnr)
+          for _, item in ipairs(symbols) do
+            table.insert(all_symbols, item)
+          end
+        end
+
+        -- Create displayer (following Telescope's pattern)
+        local displayer = entry_display.create({
+          separator = " ",
+          hl_chars = { ["["] = "TelescopeBorder", ["]"] = "TelescopeBorder" },
+          items = {
+            { width = 25 }, -- symbol name
+            { width = 10 }, -- symbol type
+            { remaining = true }, -- filename
+          },
+        })
+
+        -- Entry maker function (following Telescope's pattern)
+        local function make_entry(entry)
+          local symbol = entry.symbol
+          local filename = vim.fn.fnamemodify(entry.filename, ":t")
+          local symbol_type = symbol.kind and vim.lsp.protocol.SymbolKind[symbol.kind] or "Unknown"
+
+          local make_display = function()
+            return displayer({
+              entry.symbol_name,
+              { "[" .. symbol_type:lower() .. "]", lsp_type_highlight[symbol_type] or "TelescopeResultsComment" },
+              { filename, "TelescopeResultsIdentifier" },
+            })
+          end
+
+          return {
+            value = entry,
+            display = make_display,
+            ordinal = entry.symbol_name .. " " .. symbol_type .. " " .. filename,
+            filename = entry.filename,
+            lnum = symbol.location and symbol.location.range.start.line + 1
+              or (symbol.range and symbol.range.start.line + 1 or 1),
+            col = symbol.location and symbol.location.range.start.character + 1
+              or (symbol.range and symbol.range.start.character + 1 or 1),
+            symbol_name = entry.symbol_name,
+            symbol_type = symbol_type,
+          }
+        end
+
+        -- Create telescope picker
+        pickers
+          .new({}, {
+            prompt_title = "LSP Symbols (Visible Buffers)",
+            finder = finders.new_table({
+              results = all_symbols,
+              entry_maker = make_entry,
+            }),
+            sorter = conf.generic_sorter({}),
+            previewer = conf.grep_previewer({}),
+            attach_mappings = function(prompt_bufnr, map)
+              actions.select_default:replace(function()
+                actions.close(prompt_bufnr)
+                local selection = action_state.get_selected_entry()
+                if selection then
+                  vim.cmd("edit " .. selection.filename)
+                  vim.api.nvim_win_set_cursor(0, { selection.lnum, selection.col - 1 })
+                end
+              end)
+              return true
+            end,
+          })
+          :find()
+      end,
+      desc = "Symbols from Visible Buffers",
+    },
+    { ";SW", "<cmd>Telescope lsp_workspace_symbols<cr>", desc = "Workspace Symbols" },
 
     -- projects
     { ";p", "<cmd>Telescope project<cr>", desc = "Display project listing" },

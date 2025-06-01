@@ -30,8 +30,9 @@ windows:
         - nvim .
         -
   - tmux:
+      root: ~/dotfiles/tmux
       layout: 2644,231x66,0,0[231x57,0,0,103,231x8,0,58,104]
       panes:
-        - nvim ~/.tmux.conf
+        - nvim .tmux.conf ./themes/dayfox.conf
         -
   - git: cd dotfiles && lazygit

@@ -80,5 +80,7 @@ lualineTheme.command = {
 lualine.setup({
   options = {
     theme = lualineTheme,
+    component_separators = { left = "|", right = "|" },
+    section_separators = { left = "", right = "" },
   },
 })

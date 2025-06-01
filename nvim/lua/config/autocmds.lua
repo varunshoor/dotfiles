@@ -26,6 +26,94 @@ api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 
 vim.g.is_closing_buffer = false
 
+-- Function to check if a filename is a test file
+local function is_test_file(filename)
+  return filename:find("spec") or filename:find("test")
+end
+
+-- Function to find a window with test or spec file
+local function find_test_window()
+  local windows = vim.api.nvim_list_wins()
+  for _, win in ipairs(windows) do
+    local buf = vim.api.nvim_win_get_buf(win)
+    local full_bufname = vim.api.nvim_buf_get_name(buf)
+    local bufname = vim.fn.fnamemodify(full_bufname, ":t")
+
+    if is_test_file(bufname) then
+      return win
+    end
+  end
+  return nil
+end
+
+-- Function to find a window with a specific file
+local function find_window_with_file(target_file)
+  local windows = vim.api.nvim_list_wins()
+  for _, win in ipairs(windows) do
+    local buf = vim.api.nvim_win_get_buf(win)
+    local full_bufname = vim.api.nvim_buf_get_name(buf)
+
+    if full_bufname == target_file then
+      return win
+    end
+  end
+  return nil
+end
+
+-- Function to get potential test files for a given source file
+local function get_test_files(path, filename, extension)
+  local testfiles = {}
+  local hasTestFiles = false
+
+  if extension == "go" then
+    table.insert(testfiles, path .. filename .. "_test.go")
+    hasTestFiles = true
+  elseif extension == "ts" or extension == "tsx" then
+    local testpath = path:gsub("/src/", "/tests/")
+    table.insert(testfiles, testpath .. filename .. ".test.ts")
+    table.insert(testfiles, testpath .. filename .. ".spec.ts")
+    hasTestFiles = true
+    if extension == "tsx" then
+      table.insert(testfiles, testpath .. filename .. ".test.tsx")
+      table.insert(testfiles, testpath .. filename .. ".spec.tsx")
+    end
+  end
+
+  return testfiles, hasTestFiles
+end
+
+-- Function to get parent file from test file
+local function get_parent_file_from_test(current_file)
+  local path = vim.fn.expand("%:p:h") .. "/"
+  local filename = vim.fn.expand("%:t:r")
+  local extension = vim.fn.expand("%:e")
+
+  -- Strip test/spec suffixes from filename
+  local parent_filename = filename
+  if filename:match("_test$") then
+    parent_filename = filename:gsub("_test$", "")
+  elseif filename:match("%.test$") then
+    parent_filename = filename:gsub("%.test$", "")
+  elseif filename:match("%.spec$") then
+    parent_filename = filename:gsub("%.spec$", "")
+  end
+
+  local parent_files = {}
+
+  if extension == "go" then
+    table.insert(parent_files, path .. parent_filename .. ".go")
+  elseif extension == "ts" or extension == "tsx" then
+    -- Convert test path back to src path
+    local srcpath = path:gsub("/tests/", "/src/")
+    table.insert(parent_files, srcpath .. parent_filename .. ".ts")
+    if extension == "tsx" then
+      table.insert(parent_files, srcpath .. parent_filename .. ".tsx")
+    end
+  end
+
+  return parent_files
+end
+
 -- Function to set keymaps based on filetype
 local function set_dial_keymaps(filetype)
   local group = filetype or "default"
@@ -70,9 +158,36 @@ vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
     local orig_buf = vim.api.nvim_win_get_buf(orig_win)
     local orig_bufname = vim.api.nvim_buf_get_name(orig_buf)
 
-    if orig_bufname:find("spec") or orig_bufname:find("test") then
+    if is_test_file(orig_bufname) then
       if orig_winnum == 3 then
         vim.g.is_closing_buffer = true
+      end
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufLeave" }, {
+  pattern = { "*.go", "*.ts", "*.tsx" },
+  callback = function()
+    local current_file = vim.fn.expand("%:p")
+    local filename = vim.fn.expand("%:t:r")
+
+    -- Only proceed if current buffer is a test file
+    if not is_test_file(filename) then
+      return
+    end
+
+    -- Get potential parent files for this test file
+    local parent_files = get_parent_file_from_test(current_file)
+
+    -- Check if any parent file has an open window
+    for _, parent_file in ipairs(parent_files) do
+      if vim.fn.filereadable(parent_file) == 1 then
+        local parent_win = find_window_with_file(parent_file)
+        if parent_win then
+          vim.api.nvim_win_close(parent_win, false)
+          break
+        end
       end
     end
   end,
@@ -97,61 +212,27 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
     local extension = vim.fn.expand("%:e")
 
     -- We don't do anything if we are entering a test buffer
-    if filename:find("spec") or filename:find("test") then
+    if is_test_file(filename) then
       return
     end
 
-    local testfiles = {}
-    local hasTestFiles = false
-
-    -- Define potential test file paths
-    if extension == "go" then
-      table.insert(testfiles, path .. filename .. "_test.go")
-      hasTestFiles = true
-    elseif extension == "ts" or extension == "tsx" then
-      local testpath = path:gsub("/src/", "/tests/")
-      table.insert(testfiles, testpath .. filename .. ".test.ts")
-      table.insert(testfiles, testpath .. filename .. ".spec.ts")
-      hasTestFiles = true
-      if extension == "tsx" then
-        table.insert(testfiles, testpath .. filename .. ".test.tsx")
-        table.insert(testfiles, testpath .. filename .. ".spec.tsx")
-      end
-    end
-
+    local testfiles, hasTestFiles = get_test_files(path, filename, extension)
     local orig_win = vim.api.nvim_get_current_win()
-    local orig_winnum = vim.api.nvim_win_get_number(orig_win)
-
-    -- local orig_buf = vim.api.nvim_win_get_buf(orig_win)
-    -- local orig_bufname = vim.api.nvim_buf_get_name(orig_buf)
-    -- require("notify")(orig_bufname)
-
-    local windows = vim.api.nvim_list_wins()
-    local target_win = nil
-
-    -- Search for an open window with a test or spec file
-    local bufname = ""
-    for _, win in ipairs(windows) do
-      local buf = vim.api.nvim_win_get_buf(win)
-      local full_bufname = vim.api.nvim_buf_get_name(buf)
-      bufname = vim.fn.fnamemodify(full_bufname, ":t")
-
-      if bufname:find("spec") or bufname:find("test") then
-        target_win = win
-        break
-      end
-
-      bufname = ""
-    end
+    local target_win = find_test_window()
 
     -- Open the first existing test file
     if hasTestFiles then
       local foundTestFile = false
 
       for _, testfile in pairs(testfiles) do
-        if bufname == testfile then
-          foundTestFile = true
-          break
+        -- Check if this test file is already open in the target window
+        if target_win then
+          local target_buf = vim.api.nvim_win_get_buf(target_win)
+          local target_bufname = vim.api.nvim_buf_get_name(target_buf)
+          if target_bufname == testfile then
+            foundTestFile = true
+            break
+          end
         end
 
         if vim.fn.filereadable(testfile) == 1 then

@@ -166,7 +166,7 @@ vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufLeave" }, {
+vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
   pattern = { "*.go", "*.ts", "*.tsx" },
   callback = function()
     local current_file = vim.fn.expand("%:p")
@@ -193,9 +193,17 @@ vim.api.nvim_create_autocmd({ "BufLeave" }, {
   end,
 })
 
+-- Global variable to track if we're already processing a file navigation
+vim.g.processing_file_navigation = false
+
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
   pattern = { "*.*", "*" },
   callback = function()
+    -- Prevent duplicate execution
+    if vim.g.processing_file_navigation then
+      return
+    end
+
     if vim.g.is_closing_buffer then
       vim.g.is_closing_buffer = false
       return
@@ -207,12 +215,89 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
       return
     end
 
+    -- Skip if current buffer is not a file buffer
+    local buftype = vim.bo.buftype
+    if buftype ~= "" then
+      return
+    end
+
+    vim.g.processing_file_navigation = true
+
     local path = vim.fn.expand("%:p:h") .. "/"
     local filename = vim.fn.expand("%:t:r")
     local extension = vim.fn.expand("%:e")
 
-    -- We don't do anything if we are entering a test buffer
+    -- Handle entering a test buffer - load the main file if not already open
     if is_test_file(filename) then
+      local current_file = vim.fn.expand("%:p")
+      local parent_files = get_parent_file_from_test(current_file)
+      local orig_win = vim.api.nvim_get_current_win()
+
+      -- First, close any existing test windows that don't match the current test file
+      local windows = vim.api.nvim_list_wins()
+      for _, win in ipairs(windows) do
+        if win ~= orig_win then
+          local buf = vim.api.nvim_win_get_buf(win)
+          local full_bufname = vim.api.nvim_buf_get_name(buf)
+          local bufname = vim.fn.fnamemodify(full_bufname, ":t")
+
+          -- Close if it's a test file but not the current one
+          if is_test_file(bufname) and full_bufname ~= current_file then
+            vim.api.nvim_win_close(win, false)
+          end
+        end
+      end
+
+      -- Look for a window that already has one of the parent files
+      local parent_win = nil
+      local found_parent_file = nil
+
+      for _, parent_file in ipairs(parent_files) do
+        if vim.fn.filereadable(parent_file) == 1 then
+          parent_win = find_window_with_file(parent_file)
+          if parent_win then
+            found_parent_file = parent_file
+            break
+          end
+          -- If no window found but file exists, use the first existing parent file
+          if not found_parent_file then
+            found_parent_file = parent_file
+          end
+        end
+      end
+
+      -- If we found a parent file but no window is open with it, open it as a regular buffer
+      if found_parent_file and not parent_win then
+        -- Schedule the file opening to happen after the current autocmd finishes
+        vim.schedule(function()
+          -- Create a split to the left of the current window
+          vim.cmd("leftabove vsplit")
+          parent_win = vim.api.nvim_get_current_win()
+
+          -- Load the parent file in the new window
+          vim.api.nvim_win_set_buf(parent_win, vim.fn.bufadd(found_parent_file))
+
+          -- Set the correct filetype
+          local file_ext = found_parent_file:match("^.+(%..+)$")
+          local filetype = "go" -- default filetype
+          if file_ext == ".ts" or file_ext == ".tsx" then
+            filetype = "typescript"
+          elseif file_ext == ".js" or file_ext == ".jsx" then
+            filetype = "javascript"
+          end
+          vim.bo[vim.api.nvim_win_get_buf(parent_win)].filetype = filetype
+
+          -- Return focus to the original test window
+          vim.api.nvim_set_current_win(orig_win)
+
+          -- Reset the flag after a brief delay
+          vim.defer_fn(function()
+            vim.g.processing_file_navigation = false
+          end, 100)
+        end)
+      else
+        vim.g.processing_file_navigation = false
+      end
       return
     end
 
@@ -278,6 +363,8 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
         vim.api.nvim_win_close(target_win, false)
       end
     end
+
+    vim.g.processing_file_navigation = false
   end,
 })
 

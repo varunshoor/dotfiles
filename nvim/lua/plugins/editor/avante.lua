@@ -1,15 +1,19 @@
 -- Cursor like functionality in Neovim
 -- See: https://github.com/yetone/avante.nvim
-
 return {
   "yetone/avante.nvim",
   event = "VeryLazy",
   version = false, -- Never set this value to "*"! Never!
   opts = {
-    mode = "legacy",
-    claude = {
-      disable_tools = true,
-      model = "claude-sonnet-4-20250514",
+    provider = "claude",
+    providers = {
+      claude = {
+        model = "claude-sonnet-4-20250514",
+        disable_tools = true,
+      },
+    },
+    selector = {
+      provider = "telescope",
     },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`

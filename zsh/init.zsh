@@ -48,9 +48,10 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
 # ENHANCD
-zinit ice wait="0b" lucid
-zinit light b4b4r07/enhancd
-export ENHANCD_FILTER=fzf:fzy:peco
+# zinit ice wait="0b" lucid
+# zinit light b4b4r07/enhancd
+# export ENHANCD_FILTER=fzf:fzy:peco
+# Temporarily commented as it was interfering with cd ..
 
 # TAB COMPLETIONS
 zinit ice wait="0b" lucid blockf

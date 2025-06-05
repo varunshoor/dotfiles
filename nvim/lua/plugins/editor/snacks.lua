@@ -1,3 +1,15 @@
+local function getFortune()
+  local info = {}
+  local fortune = require("fortune")
+  fortune.setup({
+    content_type = "tips",
+  })
+
+  local fortuneTxt = fortune.get_fortune()
+  local footer = vim.list_extend(info, fortuneTxt)
+  return footer
+end
+
 local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":~")
 local headerStr = [[
 ██████╗░░█████╗░████████╗████████╗░█████╗░███╗░░░███╗██╗░░░░░██╗███╗░░██╗███████╗
@@ -9,7 +21,7 @@ local headerStr = [[
 
 ]] .. cwd .. [[
 
-]]
+]] .. table.concat(getFortune(), "\n")
 
 return {
   "snacks.nvim",

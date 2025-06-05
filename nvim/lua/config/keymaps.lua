@@ -28,6 +28,10 @@ keymap.set("n", "<Leader><Leader>", ":w<CR>", { noremap = true })
 vim.keymap.set("n", "<Leader>*", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { silent = false })
 vim.keymap.set("n", "<Leader>?", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { silent = false })
 
+-- Jump to BoL and EoL without leaving insert mode
+vim.keymap.set("i", "<M-i>", "<Esc>I", { desc = "Jump to Beginn of Line in insert mode" })
+vim.keymap.set("i", "<M-a>", "<Esc>A", { desc = "Jump to End of Line in insert mode" })
+
 -- LSP
 -- <C-/> is often interpreted as <C-_> in terminals
 keymap.set("i", "<C-/>", vim.lsp.buf.signature_help, { desc = "Show LSP signature help", remap = true })
@@ -110,8 +114,8 @@ end, { desc = "Delete Buffer" })
 keymap.set("n", "<del>", '"_x')
 keymap.set("v", "<del>", '"_x')
 keymap.set("n", "dd", '"_dd')
--- keymap.set("v", "dd", '"_dd')
--- keymap.set("v", "d", '"_d')
+keymap.set("v", "dd", '"_dd')
+keymap.set("v", "d", '"_d')
 
 -- Don't yank on cc
 keymap.set("n", "cc", '"_cc')

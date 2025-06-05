@@ -35,6 +35,7 @@ return {
   version = false, -- Never set this value to "*"! Never!
   opts = {
     provider = "claude",
+    mode = "legacy",
     providers = {
       claude = {
         model = "claude-sonnet-4-20250514",

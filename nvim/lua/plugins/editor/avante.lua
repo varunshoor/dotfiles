@@ -2,7 +2,7 @@
 -- See: https://github.com/yetone/avante.nvim
 
 -- TODO: Tweak this to your own liking
-local avante_grammar_correction = "Correct the text to standard English, but keep any code blocks inside intact."
+local avante_grammar_correction = "Correct the text to standard English, keeping code blocks intact."
 local avante_keywords = "Extract the main keywords from the following text"
 local avante_code_readability_analysis = [[
   You must identify any readability issues in the code snippet.
@@ -17,16 +17,16 @@ local avante_code_readability_analysis = [[
   - Inconsistent naming and code style.
   - Code repetition
   You may identify additional problems. The user submits a small section of code from a larger file.
-  Only list lines with readability issues, in the format <line_num>|<issue and proposed solution>
-  If there's no issues with code respond with only: <OK>
+  Only list lines with readability issues, in the format `<line_num>|<issue and proposed solution>`
+  If there are no issues with the code, respond with only: `<OK>`
 ]]
 local avante_optimize_code = "Optimize the following code"
 local avante_summarize = "Summarize the following text"
 local avante_translate = "Translate this into Chinese, but keep any code blocks inside intact"
 local avante_explain_code = "Explain the following code"
-local avante_complete_code = "Complete the following codes written in " .. vim.bo.filetype
-local avante_add_docstring = "Add docstring to the following codes"
-local avante_fix_bugs = "Fix the bugs inside the following codes if any"
+local avante_complete_code = "Complete the following code written in " .. vim.bo.filetype
+local avante_add_docstring = "Add a docstring to the following code."
+local avante_fix_bugs = "Fix any bugs in the following code."
 local avante_add_tests = "Implement tests for the following code"
 
 return {
@@ -35,10 +35,23 @@ return {
   version = false, -- Never set this value to "*"! Never!
   opts = {
     provider = "claude",
+    -- provider = "gemini",
     mode = "legacy",
     providers = {
       claude = {
         model = "claude-sonnet-4-20250514",
+        disable_tools = true,
+      },
+      gemini = {
+        endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
+        model = "gemini-2.5-flash-preview-05-20",
+        -- model = "gemini-2.5-pro-preview-06-05",
+        timeout = 30000, -- Timeout in milliseconds
+        extra_request_body = {
+          generationConfig = {
+            temperature = 0.75,
+          },
+        },
         disable_tools = true,
       },
     },

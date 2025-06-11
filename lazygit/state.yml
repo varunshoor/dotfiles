@@ -1,17 +1,22 @@
 lastupdatecheck: 0
 recentrepos:
+    - /Users/varunshoor/bottomline/stonkquant/auth
+    - /Users/varunshoor/bottomline/stonkquant/infra-core
+    - /Users/varunshoor/bottomline/bottomlinevc/infrastructure
+    - /Users/varunshoor/bottomline/bottomlinevc/infrakit
+    - /Users/varunshoor/bottomline/stonkquant/lab
+    - /Users/varunshoor/bottomline/goto/backend
+    - /Users/varunshoor/bottomline/stonkquant/market
+    - /Users/varunshoor/bottomline/nametrust/epp
+    - /Users/varunshoor/mac-setup
     - /Users/varunshoor/dotfiles
     - /Users/varunshoor/bottomline/goto/infrastructure
     - /Users/varunshoor/bottomline/goto/infra-app
     - /Users/varunshoor/bottomline/goto/infra-frontend
-    - /Users/varunshoor/bottomline/nametrust/epp
-    - /Users/varunshoor/bottomline/bottomlinevc/infrakit
-    - /Users/varunshoor/mac-setup
     - /Users/varunshoor/bottomline/goto/infra-website
     - /Users/varunshoor/bottomline/goto/infra-dns
     - /Users/varunshoor/bottomline/goto/infra-backend
     - /Users/varunshoor/bottomline/goto/gto-worker
-    - /Users/varunshoor/bottomline/goto/backend
     - /Users/varunshoor/bottomline/goto/frontend
     - /Users/varunshoor/noteworthy
     - /Users/varunshoor/bottomline/goto/app
@@ -31,7 +36,6 @@ recentrepos:
     - /Users/varunshoor/bottomline/bottomlinevc/website
     - /Users/varunshoor/bottomline/bottomlinevc/infra-website
     - /Users/varunshoor/bottomline/bottomlinevc/infra-dns
-    - /Users/varunshoor/bottomline/bottomlinevc/infrastructure
     - /Users/varunshoor/bottomline/johari/backend
     - /Users/varunshoor/bottomline/johari/database
     - /Users/varunshoor/bottomline/johari/infra-backend
@@ -39,10 +43,8 @@ recentrepos:
     - /Users/varunshoor/bottomline/johari/infra-website
     - /Users/varunshoor/bottomline/johari/infra-dns
     - /Users/varunshoor/bottomline/johari/infrastructure
-    - /Users/varunshoor/bottomline/stonkquant/market
-    - /Users/varunshoor/bottomline/stonkquant/lab
 startuppopupversion: 5
-lastversion: 0.51.1
+lastversion: 0.52.0
 customcommandshistory: []
 hidecommandlog: false
 ignorewhitespaceindiffview: false

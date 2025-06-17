@@ -85,7 +85,6 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 zinit ice lucid wait="1" as="program" pick="src/batgrep.sh"
 zinit ice lucid wait="1" as="program" pick="src/batdiff.sh"
 zinit light eth-p/bat-extras
-alias rg=batgrep.sh
 alias bd=batdiff.sh
 alias man=batman.sh
 

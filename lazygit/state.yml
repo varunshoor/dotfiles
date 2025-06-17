@@ -1,15 +1,17 @@
 lastupdatecheck: 0
 recentrepos:
+    - /Users/varunshoor/bottomline/stonkquant/lab
+    - /Users/varunshoor/bottomline/stonkquant/market
+    - /Users/varunshoor/dotfiles
     - /Users/varunshoor/bottomline/stonkquant/auth
+    - /Users/varunshoor/bottomline/stonkquant/bot
+    - /Users/varunshoor/bottomline/nametrust/epp
+    - /Users/varunshoor/mac-setup
+    - /Users/varunshoor/bottomline/stonkquant/mockbroker
     - /Users/varunshoor/bottomline/stonkquant/infra-core
     - /Users/varunshoor/bottomline/bottomlinevc/infrastructure
     - /Users/varunshoor/bottomline/bottomlinevc/infrakit
-    - /Users/varunshoor/bottomline/stonkquant/lab
     - /Users/varunshoor/bottomline/goto/backend
-    - /Users/varunshoor/bottomline/stonkquant/market
-    - /Users/varunshoor/bottomline/nametrust/epp
-    - /Users/varunshoor/mac-setup
-    - /Users/varunshoor/dotfiles
     - /Users/varunshoor/bottomline/goto/infrastructure
     - /Users/varunshoor/bottomline/goto/infra-app
     - /Users/varunshoor/bottomline/goto/infra-frontend

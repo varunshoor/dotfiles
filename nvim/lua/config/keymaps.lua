@@ -114,7 +114,7 @@ end, { desc = "Delete Buffer" })
 keymap.set("n", "<del>", '"_x')
 keymap.set("v", "<del>", '"_x')
 keymap.set("n", "dd", '"_dd')
-keymap.set("v", "dd", '"_dd')
+-- Remove the problematic visual dd mapping
 keymap.set("v", "d", '"_d')
 
 -- Don't yank on cc

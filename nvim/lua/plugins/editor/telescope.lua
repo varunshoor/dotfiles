@@ -130,7 +130,7 @@ return {
     },
 
     -- Resume
-    { ";RR", "<cmd>Telescope resume<cr>", desc = "Resume" },
+    { ";<space>", "<cmd>Telescope resume<cr>", desc = "Resume" },
 
     -- Notifications
     { ";n", "<cmd>Telescope notify<cr>", desc = "Notifications" },
@@ -403,18 +403,5 @@ return {
     telescope.load_extension("harpoon")
     telescope.load_extension("oil")
     telescope.load_extension("notify")
-
-    vim.keymap.set("n", ";<space>", function()
-      telescope.extensions.file_browser.file_browser({
-        path = "%:p:h",
-        cwd = telescope_buffer_dir(),
-        respect_gitignore = false,
-        hidden = true,
-        grouped = true,
-        previewer = false,
-        initial_mode = "normal",
-        layout_config = { height = 40 },
-      })
-    end)
   end,
 }

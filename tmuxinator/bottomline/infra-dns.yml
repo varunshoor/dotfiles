@@ -5,9 +5,16 @@ root: ~/bottomline/bottomlinevc/infra-dns
 
 windows:
   - nvim:
-      layout: 7d6d,231x66,0,0[231x55,0,0,42,231x10,0,56{178x10,0,56,45,52x10,179,56,91}]
+      layout: d5a1,231x66,0,0[231x55,0,0,120,231x10,0,56{89x10,0,56,123,88x10,90,56,125,52x10,179,56,124}]
       panes:
         - nvim
+        -
+        - claude
+        - watchexec "go test -race -cover -json ./... | tparse -all"
+  - js:
+      layout: 7d6d,231x66,0,0[231x55,0,0,42,231x10,0,56{178x10,0,56,45,52x10,179,56,91}]
+      panes:
+        -
         -
         - pnpm test:coverage
   - console:

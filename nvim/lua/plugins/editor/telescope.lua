@@ -378,13 +378,13 @@ return {
         mappings = {
           i = {
             ["<esc>"] = require("telescope.actions").close, -- Close directly on Esc vs entering normal mode
-            ["<C-q>"] = require("telescope.actions").smart_send_to_qflist + require("telescope.actions").open_qflist,
+            ["<C-f>"] = require("telescope.actions").smart_send_to_qflist + require("telescope.actions").open_qflist,
             ["<C-t>"] = open_with_trouble,
             ["<C-d>"] = require("telescope.actions").delete_buffer,
           },
           n = {
             ["<esc>"] = require("telescope.actions").close, -- Close directly on Esc vs entering normal mode
-            ["<C-q>"] = require("telescope.actions").smart_send_to_qflist + require("telescope.actions").open_qflist,
+            ["<C-f>"] = require("telescope.actions").smart_send_to_qflist + require("telescope.actions").open_qflist,
             ["<C-t>"] = open_with_trouble,
             ["<C-d>"] = require("telescope.actions").delete_buffer,
           },

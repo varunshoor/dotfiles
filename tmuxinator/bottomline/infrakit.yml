@@ -5,9 +5,16 @@ root: ~/bottomline/bottomlinevc/infrakit
 
 windows:
   - nvim:
-      layout: 7d6d,231x66,0,0[231x55,0,0,42,231x10,0,56{178x10,0,56,45,52x10,179,56,91}]
+      layout: 9bfd,231x68,0,0[231x52,0,0,122,231x15,0,53{75x15,0,53,126,80x15,76,53,127,74x15,157,53,128}]
       panes:
         - nvim
+        - claude
+        - watchexec "go test -race -cover -json ./... | tparse -all"
+        -
+  - js:
+      layout: 7d6d,231x66,0,0[231x55,0,0,42,231x10,0,56{178x10,0,56,45,52x10,179,56,91}]
+      panes:
+        -
         -
         - pnpm test:coverage
   - console:

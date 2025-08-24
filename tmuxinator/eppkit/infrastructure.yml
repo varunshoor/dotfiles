@@ -1,0 +1,15 @@
+# /Users/varunshoor/.config/tmuxinator/eppkit/infrastructure.yml
+
+name: eppkit/infrastructure
+root: ~/bottomline/eppkit/infrastructure
+
+windows:
+  - nvim:
+      layout: 9bfd,231x68,0,0[231x52,0,0,122,231x15,0,53{75x15,0,53,126,80x15,76,53,127,74x15,157,53,128}]
+      panes:
+        - nvim
+        - claude
+        - watchexec "go test -race -cover -json ./... | tparse -all"
+        -
+  - console:
+  - git: lazygit

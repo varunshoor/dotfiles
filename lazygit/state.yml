@@ -1,19 +1,26 @@
 lastupdatecheck: 0
 recentrepos:
-    - /Users/varunshoor/dotfiles
-    - /Users/varunshoor/bottomline/goto/infrastructure
+    - /Users/varunshoor/bottomline/eppkit/epp
+    - /Users/varunshoor/bottomline/eppkit/xml
+    - /Users/varunshoor/bottomline/nametrust/infra-epp
+    - /Users/varunshoor/bottomline/eppkit/infra-apps
+    - /Users/varunshoor/bottomline/nametrust/infrastructure
+    - /Users/varunshoor/bottomline/stonkquant/bot
     - /Users/varunshoor/bottomline/goto/infra-app
     - /Users/varunshoor/bottomline/bottomlinevc/infrakit
-    - /Users/varunshoor/bottomline/goto/infra-website
-    - /Users/varunshoor/bottomline/stonkquant/market
-    - /Users/varunshoor/bottomline/stonkquant/lab
-    - /Users/varunshoor/bottomline/stonkquant/auth
-    - /Users/varunshoor/bottomline/stonkquant/bot
-    - /Users/varunshoor/bottomline/nametrust/epp
+    - /Users/varunshoor/bottomline/eppkit/infrastructure
+    - /Users/varunshoor/dotfiles
     - /Users/varunshoor/mac-setup
-    - /Users/varunshoor/bottomline/stonkquant/mockbroker
-    - /Users/varunshoor/bottomline/stonkquant/infra-core
     - /Users/varunshoor/bottomline/bottomlinevc/infrastructure
+    - /Users/varunshoor/bottomline/nametrust/infra-rdap
+    - /Users/varunshoor/bottomline/stonkquant/shared
+    - /Users/varunshoor/bottomline/stonkquant/backtest
+    - /Users/varunshoor/bottomline/stonkquant/lab
+    - /Users/varunshoor/bottomline/stonkquant/mockbroker
+    - /Users/varunshoor/bottomline/stonkquant/market
+    - /Users/varunshoor/bottomline/stonkquant/auth
+    - /Users/varunshoor/bottomline/goto/infrastructure
+    - /Users/varunshoor/bottomline/goto/infra-website
     - /Users/varunshoor/bottomline/goto/backend
     - /Users/varunshoor/bottomline/goto/infra-frontend
     - /Users/varunshoor/bottomline/goto/infra-dns
@@ -23,36 +30,19 @@ recentrepos:
     - /Users/varunshoor/noteworthy
     - /Users/varunshoor/bottomline/goto/app
     - /Users/varunshoor/bottomline/goto/website
-    - /Users/varunshoor/bottomline/nametrust/xml
     - /Users/varunshoor/bottomline/goto/database
-    - /Users/varunshoor/bottomline/nametrust/infra-epp
     - /Users/varunshoor/bottomline/nametrust/rdap-worker
-    - /Users/varunshoor/bottomline/nametrust/infra-rdap
     - /Users/varunshoor/bottomline/nametrust/website
     - /Users/varunshoor/bottomline/nametrust/infra-website
     - /Users/varunshoor/bottomline/nametrust/blog-theme
     - /Users/varunshoor/bottomline/nametrust/infra-blog
     - /Users/varunshoor/bottomline/nametrust/infra-vpn
     - /Users/varunshoor/bottomline/nametrust/infra-dns
-    - /Users/varunshoor/bottomline/nametrust/infrastructure
     - /Users/varunshoor/bottomline/bottomlinevc/website
     - /Users/varunshoor/bottomline/bottomlinevc/infra-website
     - /Users/varunshoor/bottomline/bottomlinevc/infra-dns
-    - /Users/varunshoor/bottomline/johari/backend
-    - /Users/varunshoor/bottomline/johari/database
-    - /Users/varunshoor/bottomline/johari/infra-backend
-    - /Users/varunshoor/bottomline/johari/website
-    - /Users/varunshoor/bottomline/johari/infra-website
-    - /Users/varunshoor/bottomline/johari/infra-dns
-    - /Users/varunshoor/bottomline/johari/infrastructure
 startuppopupversion: 5
-lastversion: 0.53.0
+didshowhunkstaginghint: true
+lastversion: 0.54.2
 customcommandshistory: []
 hidecommandlog: false
-ignorewhitespaceindiffview: false
-diffcontextsize: 2
-renamesimilaritythreshold: 50
-localbranchsortorder: recency
-remotebranchsortorder: alphabetical
-gitlogorder: topo-order
-gitlogshowgraph: always

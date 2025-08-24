@@ -1,7 +1,7 @@
-# /Users/varunshoor/.config/tmuxinator/nametrust/epp.yml
+# /Users/varunshoor/.config/tmuxinator/stonkquant/backtest.yml
 
-name: nametrust/epp
-root: ~/bottomline/nametrust/epp
+name: stonkquant/backtest
+root: ~/bottomline/stonkquant/backtest
 
 windows:
   - nvim:

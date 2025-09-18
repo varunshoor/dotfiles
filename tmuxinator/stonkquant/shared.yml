@@ -5,11 +5,11 @@ root: ~/bottomline/stonkquant/shared
 
 windows:
   - nvim:
-      layout: d5a1,231x66,0,0[231x55,0,0,120,231x10,0,56{89x10,0,56,123,88x10,90,56,125,52x10,179,56,124}]
+      layout: 9bfd,231x68,0,0[231x52,0,0,122,231x15,0,53{75x15,0,53,126,80x15,76,53,127,74x15,157,53,128}]
       panes:
         - nvim
-        -
         - claude
         - watchexec "go test -race -cover -json ./... | tparse -all"
+        -
   - console:
   - git: lazygit

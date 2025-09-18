@@ -1,5 +1,8 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  lazy = false,
+  branch = "main",
+  build = ":TSUpdate",
   dependencies = {
     "nvim-treesitter/nvim-treesitter-context",
     "m-demare/hlargs.nvim",

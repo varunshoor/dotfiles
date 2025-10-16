@@ -3,8 +3,8 @@
 
 return {
   "mrjones2014/smart-splits.nvim",
+  version = "=2.0.4",
   build = "./kitty/install-kittens.bash",
-  -- lazy = true,
   keys = {
     -- Reset the existing keymap to nothing
     { "<C-Left>", "<Plug>SmartSplitLeft", mode = { "n" }, desc = "Move cursor left" },

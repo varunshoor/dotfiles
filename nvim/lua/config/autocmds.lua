@@ -15,6 +15,14 @@ vim.opt.relativenumber = false
 
 local api = vim.api
 
+-- Close term windows using Esc
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "*yazi*",
+  callback = function()
+    vim.api.nvim_buf_set_keymap(0, "t", "<Esc>", "q", { noremap = true })
+  end,
+})
+
 -- Enable spell checking for certain file types
 api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.txt", "*.md", "*.tex" },

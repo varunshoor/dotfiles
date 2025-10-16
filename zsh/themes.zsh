@@ -23,7 +23,7 @@ export LS_COLORS
 
 # Eza colors: https://github.com/eza-community/eza/blob/main/man/eza_colors.5.md
 EZA_COLORS="reset:$LS_COLORS"                      # Reset default colors, like making everything yellow
-EZA_COLORS+="da=36;5;53:"                               # Timestamps
+EZA_COLORS+="da=36:"                               # Timestamps
 EZA_COLORS+="ur=0:uw=0:ux=0:ue=0:"                 # User permissions
 EZA_COLORS+="gr=0:gw=0:gx=0:"                      # Group permissions
 EZA_COLORS+="tr=0:tw=0:tx=0:"                      # Other permissions

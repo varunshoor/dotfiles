@@ -1,6 +1,7 @@
 lastupdatecheck: 0
 recentrepos:
     - /Users/varunshoor/dotfiles
+    - /Users/varunshoor/bottomline/eppkit/epp
     - /Users/varunshoor/bottomline/stonkquant/strategizer
     - /Users/varunshoor/bottomline/stonkquant/mockbroker
     - /Users/varunshoor/bottomline/stonkquant/backtest
@@ -8,7 +9,6 @@ recentrepos:
     - /Users/varunshoor/bottomline/stonkquant/shared
     - /Users/varunshoor/bottomline/stonkquant/lab
     - /Users/varunshoor/mac-setup
-    - /Users/varunshoor/bottomline/eppkit/epp
     - /Users/varunshoor/bottomline/bottomlinevc/infrakit
     - /Users/varunshoor/bottomline/eppkit/infra-apps
     - /Users/varunshoor/bottomline/eppkit/infrastructure

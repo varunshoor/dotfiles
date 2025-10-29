@@ -20,7 +20,7 @@ require("lazy").setup({
     lazy = false,
     version = false,
   },
-  install = { colorscheme = { "nightfox" }, missing = true },
+  install = { colorscheme = { "dayfox" }, missing = true },
   checker = { enabled = true }, -- automatically check for plugin updates
   performance = {
     rtp = {

@@ -10,6 +10,6 @@ git:
   commit:
     autoWrapCommitMessage: true
     autoWrapWidth: 72
-  paging:
-    colorArg: always
-    pager: delta --light --syntax-theme GitHub --paging=never
+  pagers:
+    - colorArg: always
+      pager: delta --light --syntax-theme GitHub --paging=never

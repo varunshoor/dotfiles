@@ -1,7 +1,8 @@
 lastupdatecheck: 0
 recentrepos:
-    - /Users/varunshoor/bottomline/eppkit/epp
     - /Users/varunshoor/dotfiles
+    - /Users/varunshoor/bottomline/dotmonk/website
+    - /Users/varunshoor/bottomline/eppkit/epp
     - /Users/varunshoor/bottomline/stonkquant/strategizer
     - /Users/varunshoor/bottomline/stonkquant/mockbroker
     - /Users/varunshoor/bottomline/stonkquant/backtest
@@ -44,6 +45,6 @@ recentrepos:
     - /Users/varunshoor/bottomline/bottomlinevc/infra-dns
 startuppopupversion: 5
 didshowhunkstaginghint: true
-lastversion: 0.55.1
+lastversion: 0.56.0
 customcommandshistory: []
 hidecommandlog: false

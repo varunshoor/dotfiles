@@ -1,7 +1,7 @@
-# /Users/varunshoor/.config/tmuxinator/eppkit/eppd.yml
+# /Users/varunshoor/.config/tmuxinator/eppkit/eppclientd.yml
 
-name: eppkit/eppd
-root: ~/bottomline/eppkit/eppd
+name: eppkit/eppclientd
+root: ~/bottomline/eppkit/eppclientd
 
 windows:
   - nvim:

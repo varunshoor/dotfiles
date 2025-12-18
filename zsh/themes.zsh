@@ -9,8 +9,11 @@ ZSH_THEME="agnoster"
 # Enable color output for CLI tools like ls and grep
 export CLICOLOR=1
 
+# Set colors
+COLORTERM=truecolor
+
 # BAT (cat replacement)
-export BAT_THEME="Dracula"
+export BAT_THEME="GitHub"
 
 # Customize LS colors
 # Used by: ls, fd

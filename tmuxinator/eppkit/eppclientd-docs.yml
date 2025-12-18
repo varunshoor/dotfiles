@@ -1,7 +1,7 @@
-# /Users/varunshoor/.config/tmuxinator/eppkit/eppctl.yml
+# /Users/varunshoor/.config/tmuxinator/eppkit/eppclientd-docs.yml
 
-name: eppkit/eppctl
-root: ~/bottomline/eppkit/eppctl
+name: eppkit/eppclientd-docs
+root: ~/bottomline/eppkit/eppclientd-docs
 
 windows:
   - nvim:
@@ -9,7 +9,7 @@ windows:
       panes:
         - nvim
         - claude
-        - watchexec "go test -race -cover -json ./... | tparse -all"
+        -
         -
   - console:
   - git: lazygit

@@ -1,7 +1,7 @@
-# /Users/varunshoor/.config/tmuxinator/eppkit/infrastructure.yml
+# /Users/varunshoor/.config/tmuxinator/eppkit/eppclientprobe.yml
 
-name: eppkit/infrastructure
-root: ~/bottomline/eppkit/infrastructure
+name: eppkit/eppclientprobe
+root: ~/bottomline/eppkit/eppclientprobe
 
 windows:
   - nvim:
@@ -13,3 +13,4 @@ windows:
         -
   - console:
   - git: lazygit
+  - build: dev.sh

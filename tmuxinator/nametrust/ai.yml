@@ -1,7 +1,7 @@
-# /Users/varunshoor/.config/tmuxinator/eppkit/infrastructure.yml
+# /Users/varunshoor/.config/tmuxinator/nametrust/ai.yml
 
-name: eppkit/infrastructure
-root: ~/bottomline/eppkit/infrastructure
+name: nametrust/ai
+root: ~/bottomline/nametrust/ai
 
 windows:
   - nvim:
@@ -13,3 +13,4 @@ windows:
         -
   - console:
   - git: lazygit
+  - server: docker compose up

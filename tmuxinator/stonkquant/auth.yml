@@ -9,7 +9,7 @@ windows:
       panes:
         - nvim
         - claude
-        - watchexec "go test -race -cover -json ./... | tparse -all"
+        - watchexec -d 15s "go test -race -cover -json ./... | tparse -all"
         -
   - console:
   - git: lazygit

@@ -1,7 +1,7 @@
-# /Users/varunshoor/.config/tmuxinator/eppkit/infrastructure.yml
+# /Users/varunshoor/.config/tmuxinator/eppkit/devkit.yml
 
-name: eppkit/infrastructure
-root: ~/bottomline/eppkit/infrastructure
+name: eppkit/devkit
+root: ~/bottomline/eppkit/devkit
 
 windows:
   - nvim:
@@ -9,7 +9,7 @@ windows:
       panes:
         - nvim
         - claude
-        - watchexec -d 15s "go test -race -cover -json ./... | tparse -all"
+        -
         -
   - console:
   - git: lazygit

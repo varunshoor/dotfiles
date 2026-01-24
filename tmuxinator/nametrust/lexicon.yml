@@ -1,7 +1,7 @@
-# /Users/varunshoor/.config/tmuxinator/eppkit/infrastructure.yml
+# /Users/varunshoor/.config/tmuxinator/nametrust/lexion.yml
 
-name: eppkit/infrastructure
-root: ~/bottomline/eppkit/infrastructure
+name: nametrust/lexicon
+root: ~/bottomline/nametrust/lexicon
 
 windows:
   - nvim:

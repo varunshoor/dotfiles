@@ -1,7 +1,7 @@
-# /Users/varunshoor/.config/tmuxinator/eppkit/infrastructure.yml
+# /Users/varunshoor/.config/tmuxinator/nametrust/eppkit.yml
 
-name: eppkit/infrastructure
-root: ~/bottomline/eppkit/infrastructure
+name: nametrust/eppkit
+root: ~/bottomline/nametrust/eppkit
 
 windows:
   - nvim:

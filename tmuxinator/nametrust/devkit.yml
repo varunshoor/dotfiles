@@ -1,7 +1,7 @@
-# /Users/varunshoor/.config/tmuxinator/nametrust/ai.yml
+# /Users/varunshoor/.config/tmuxinator/nametrust/devkit.yml
 
-name: nametrust/ai
-root: ~/bottomline/nametrust/ai
+name: nametrust/devkit
+root: ~/bottomline/nametrust/devkit
 
 windows:
   - nvim:
@@ -9,7 +9,7 @@ windows:
       panes:
         - nvim
         - claude
-        - watchexec -d 15s "go test -race -cover -json ./... | tparse -all"
+        -
         -
   - console:
   - git: lazygit

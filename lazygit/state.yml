@@ -1,17 +1,19 @@
 lastupdatecheck: 0
 recentrepos:
-    - /Users/varunshoor/bottomline/eppkit/eppmockd
     - /Users/varunshoor/bottomline/eppkit/epp
-    - /Users/varunshoor/bottomline/eppkit/eppclientd
-    - /Users/varunshoor/dotfiles
     - /Users/varunshoor/bottomline/nametrust/api
+    - /Users/varunshoor/bottomline/eppkit/eppclientd
+    - /Users/varunshoor/bottomline/eppkit/eppmockd
+    - /Users/varunshoor/bottomline/nametrust/wss
+    - /Users/varunshoor/bottomline/nametrust/ai
     - /Users/varunshoor/bottomline/eppkit/devkit
+    - /Users/varunshoor/bottomline/nametrust/devkit
+    - /Users/varunshoor/bottomline/eppkit/eppclientprobe
+    - /Users/varunshoor/dotfiles
     - /Users/varunshoor/bottomline/eppkit/eppclientd-docs
     - /Users/varunshoor/bottomline/eppkit/infra-apps
     - /Users/varunshoor/bottomline/nametrust/apikit
     - /Users/varunshoor/bottomline/nametrust/eppkit
-    - /Users/varunshoor/bottomline/eppkit/eppclientprobe
-    - /Users/varunshoor/bottomline/nametrust/ai
     - /Users/varunshoor/bottomline/nametrust/infrastructure
     - /Users/varunshoor/mac-setup
     - /Users/varunshoor/bottomline/goto/backend

@@ -13,4 +13,3 @@ windows:
         -
   - console:
   - git: lazygit
-  - server: docker compose up

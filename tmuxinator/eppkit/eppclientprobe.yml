@@ -7,10 +7,10 @@ windows:
   - nvim:
       layout: 9bfd,231x68,0,0[231x52,0,0,122,231x15,0,53{75x15,0,53,126,80x15,76,53,127,74x15,157,53,128}]
       panes:
-        - nvim
-        - claude
-        - watchexec -d 15s "go test -race -cover -json ./... | tparse -all"
-        -
-  - console:
-  - git: lazygit
-  - build: dev.sh
+        - tmux set-option -p -t "$TMUX_PANE" @pane_name "nvim" && nvim
+        - tmux set-option -p -t "$TMUX_PANE" @pane_name "claude" && claude
+        - tmux set-option -p -t "$TMUX_PANE" @pane_name "tests" && watchexec -d 15s "go test -race -cover -json ./... | tparse -all"
+        - tmux set-option -p -t "$TMUX_PANE" @pane_name "shell"
+  - console: tmux set-option -p -t "$TMUX_PANE" @pane_name "console"
+  - git: tmux set-option -p -t "$TMUX_PANE" @pane_name "lazygit" && lazygit
+  - build: tmux set-option -p -t "$TMUX_PANE" @pane_name "build" && dev.sh

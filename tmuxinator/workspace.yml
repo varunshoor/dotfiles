@@ -4,35 +4,35 @@ name: workspace
 root: ~/
 
 windows:
-  - console: clear
+  - console: tmux set-option -p -t "$TMUX_PANE" @pane_name "console" && clear
   - nvim:
       root: ~/.config/nvim
       layout: 2644,231x66,0,0[231x57,0,0,103,231x8,0,58,104]
       panes:
-        - nvim
-        -
+        - tmux set-option -p -t "$TMUX_PANE" @pane_name "nvim" && nvim
+        - tmux set-option -p -t "$TMUX_PANE" @pane_name "shell"
   - mux:
       root: ~/dotfiles/tmuxinator
       layout: 2644,231x66,0,0[231x57,0,0,103,231x8,0,58,104]
       panes:
-        - nvim
-        -
+        - tmux set-option -p -t "$TMUX_PANE" @pane_name "nvim" && nvim
+        - tmux set-option -p -t "$TMUX_PANE" @pane_name "shell"
   - kitty:
       root: ~/dotfiles/kitty
       layout: 2644,231x66,0,0[231x57,0,0,103,231x8,0,58,104]
       panes:
-        - nvim
-        -
+        - tmux set-option -p -t "$TMUX_PANE" @pane_name "nvim" && nvim
+        - tmux set-option -p -t "$TMUX_PANE" @pane_name "shell"
   - zshrc:
       root: ~/dotfiles/zsh
       layout: 2644,231x66,0,0[231x57,0,0,103,231x8,0,58,104]
       panes:
-        - nvim
-        -
+        - tmux set-option -p -t "$TMUX_PANE" @pane_name "nvim" && nvim
+        - tmux set-option -p -t "$TMUX_PANE" @pane_name "shell"
   - tmux:
       root: ~/dotfiles/tmux
       layout: 2644,231x66,0,0[231x57,0,0,103,231x8,0,58,104]
       panes:
-        - nvim .tmux.conf ./themes/dayfox.conf
-        -
-  - git: cd dotfiles && lazygit
+        - tmux set-option -p -t "$TMUX_PANE" @pane_name "nvim" && nvim .tmux.conf ./themes/dayfox.conf
+        - tmux set-option -p -t "$TMUX_PANE" @pane_name "shell"
+  - git: tmux set-option -p -t "$TMUX_PANE" @pane_name "lazygit" && cd dotfiles && lazygit

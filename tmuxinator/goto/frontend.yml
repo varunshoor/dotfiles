@@ -7,13 +7,13 @@ windows:
   - nvim:
       layout: 7d6d,231x66,0,0[231x55,0,0,42,231x10,0,56{178x10,0,56,45,52x10,179,56,91}]
       panes:
-        - nvim
-        -
-        - pnpm test:coverage
-  - console:
-  - git: lazygit
+        - tmux set-option -p -t "$TMUX_PANE" @pane_name "nvim" && nvim
+        - tmux set-option -p -t "$TMUX_PANE" @pane_name "shell"
+        - tmux set-option -p -t "$TMUX_PANE" @pane_name "tests" && pnpm test:coverage
+  - console: tmux set-option -p -t "$TMUX_PANE" @pane_name "console"
+  - git: tmux set-option -p -t "$TMUX_PANE" @pane_name "lazygit" && lazygit
   - servers:
       layout: even-vertical
       panes:
-        - pnpm run dev
-        -
+        - tmux set-option -p -t "$TMUX_PANE" @pane_name "dev" && pnpm run dev
+        - tmux set-option -p -t "$TMUX_PANE" @pane_name "shell"

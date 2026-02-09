@@ -5,10 +5,11 @@ root: ~/bottomline/nametrust/infra-vpn
 
 windows:
   - nvim:
-      layout: 7d6d,231x66,0,0[231x55,0,0,42,231x10,0,56{178x10,0,56,45,52x10,179,56,91}]
+      layout: 9bfd,231x68,0,0[231x52,0,0,122,231x15,0,53{75x15,0,53,126,80x15,76,53,127,74x15,157,53,128}]
       panes:
         - tmux set-option -p -t "$TMUX_PANE" @pane_name "nvim" && nvim
+        - tmux set-option -p -t "$TMUX_PANE" @pane_name "claude" && claude
+        - tmux set-option -p -t "$TMUX_PANE" @pane_name "tests" && watchexec -d 15s "go test -race -cover -json ./... | tparse -all"
         - tmux set-option -p -t "$TMUX_PANE" @pane_name "shell"
-        - tmux set-option -p -t "$TMUX_PANE" @pane_name "tests" && pnpm test:coverage
   - console: tmux set-option -p -t "$TMUX_PANE" @pane_name "console"
   - git: tmux set-option -p -t "$TMUX_PANE" @pane_name "lazygit" && lazygit

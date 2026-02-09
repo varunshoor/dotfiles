@@ -26,6 +26,7 @@ copilot_filetypes.dotenv = false
 vim.g.copilot_filetypes = copilot_filetypes
 
 return {
+  enabled = false,
   "github/copilot.vim",
   lazy = true,
   event = "InsertEnter",

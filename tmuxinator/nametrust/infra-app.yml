@@ -1,7 +1,7 @@
-# /Users/varunshoor/.config/tmuxinator/nametrust/infra-blog.yml
+# /Users/varunshoor/.config/tmuxinator/nametrust/infra-app.yml
 
-name: nametrust/infra-blog
-root: ~/bottomline/nametrust/infra-blog
+name: nametrust/infra-app
+root: ~/bottomline/nametrust/infra-app
 
 windows:
   - nvim:

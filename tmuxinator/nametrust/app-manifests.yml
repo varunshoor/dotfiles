@@ -1,7 +1,7 @@
-# /Users/varunshoor/.config/tmuxinator/nametrust/infra-rdap.yml
+# /Users/varunshoor/.config/tmuxinator/nametrust/app-manifests.yml
 
-name: nametrust/infra-rdap
-root: ~/bottomline/nametrust/infra-rdap
+name: nametrust/app-manifests
+root: ~/bottomline/nametrust/app-manifests
 
 windows:
   - nvim:
@@ -9,7 +9,6 @@ windows:
       panes:
         - tmux set-option -p -t "$TMUX_PANE" @pane_name "nvim" && nvim
         - tmux set-option -p -t "$TMUX_PANE" @pane_name "claude" && claude
-        - tmux set-option -p -t "$TMUX_PANE" @pane_name "tests" && watchexec -d 15s "go test -race -cover -json ./... | tparse -all"
         - tmux set-option -p -t "$TMUX_PANE" @pane_name "shell"
   - console: tmux set-option -p -t "$TMUX_PANE" @pane_name "console"
   - git: tmux set-option -p -t "$TMUX_PANE" @pane_name "lazygit" && lazygit

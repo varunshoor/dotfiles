@@ -1,40 +1,50 @@
 lastupdatecheck: 0
 recentrepos:
-    - /Users/varunshoor/bottomline/nametrust/infra-app
-    - /Users/varunshoor/bottomline/eppkit/epp
-    - /Users/varunshoor/bottomline/eppkit/eppmockd
-    - /Users/varunshoor/bottomline/nametrust/api
-    - /Users/varunshoor/bottomline/eppkit/eppclientd
-    - /Users/varunshoor/bottomline/nametrust/blog-theme
-    - /Users/varunshoor/bottomline/nametrust/website
-    - /Users/varunshoor/bottomline/nametrust/infra-blog
-    - /Users/varunshoor/bottomline/nametrust/infra-website
-    - /Users/varunshoor/bottomline/nametrust/rdap-worker
-    - /Users/varunshoor/bottomline/nametrust/infra-epp
+    - /Users/varunshoor/bottomline/nametrust/infrastructure
     - /Users/varunshoor/bottomline/nametrust/infra-rdap
+    - /Users/varunshoor/bottomline/nametrust/apikit
+    - /Users/varunshoor/bottomline/nametrust/frontend
+    - /Users/varunshoor/bottomline/eppkit/devkit
+    - /Users/varunshoor/bottomline/nametrust/devkit
+    - /Users/varunshoor/bottomline/nametrust/infra-blog
+    - /Users/varunshoor/bottomline/bottomlinevc/infrakit
+    - /Users/varunshoor/bottomline/nametrust/infra-app
+    - /Users/varunshoor/mac-setup
+    - /Users/varunshoor/bottomline/nametrust/api
+    - /Users/varunshoor/bottomline/nametrust/ai-db
+    - /Users/varunshoor/bottomline/nametrust/ai
+    - /Users/varunshoor/bottomline/nametrust/epp-manifests
+    - /Users/varunshoor/bottomline/nametrust/app-manifests
+    - /Users/varunshoor/dotfiles
+    - /Users/varunshoor/bottomline/bottomlinevc/infrastructure
+    - /Users/varunshoor/bottomline/nametrust/dbkit
+    - /Users/varunshoor/bottomline/nametrust/infra-website
     - /Users/varunshoor/bottomline/nametrust/infra-vpn
     - /Users/varunshoor/bottomline/nametrust/infra-dns
-    - /Users/varunshoor/bottomline/nametrust/infrastructure
-    - /Users/varunshoor/bottomline/eppkit/infra-apps
+    - /Users/varunshoor/bottomline/eppkit/eppclientprobe
     - /Users/varunshoor/bottomline/eppkit/infrastructure
+    - /Users/varunshoor/bottomline/nametrust/api-db
+    - /Users/varunshoor/bottomline/nametrust/epp-db
+    - /Users/varunshoor/bottomline/eppkit/eppmockd
+    - /Users/varunshoor/bottomline/nametrust/eppkit
+    - /Users/varunshoor/bottomline/eppkit/infra-apps
+    - /Users/varunshoor/bottomline/nametrust/wss
+    - /Users/varunshoor/bottomline/eppkit/epp
+    - /Users/varunshoor/bottomline/nametrust/infra-frontend
+    - /Users/varunshoor/bottomline/eppkit/eppclientd
+    - /Users/varunshoor/bottomline/nametrust/infra-epp
+    - /Users/varunshoor/bottomline/bottomlinevc/website
     - /Users/varunshoor/bottomline/bottomlinevc/infra-website
     - /Users/varunshoor/bottomline/bottomlinevc/infra-dns
-    - /Users/varunshoor/bottomline/bottomlinevc/infrastructure
-    - /Users/varunshoor/bottomline/bottomlinevc/infrakit
-    - /Users/varunshoor/dotfiles
-    - /Users/varunshoor/bottomline/nametrust/apikit
-    - /Users/varunshoor/bottomline/nametrust/devkit
-    - /Users/varunshoor/bottomline/eppkit/devkit
-    - /Users/varunshoor/bottomline/nametrust/ai
-    - /Users/varunshoor/dev/nametrust/vercelaisdk/experimental-chat
-    - /Users/varunshoor/bottomline/nametrust/wss
-    - /Users/varunshoor/bottomline/nametrust/eppkit
-    - /Users/varunshoor/bottomline/eppkit/eppclientprobe
+    - /Users/varunshoor/bottomline/nametrust/docs
+    - /Users/varunshoor/bottomline/eppkit/infra-dns
     - /Users/varunshoor/bottomline/eppkit/eppclientd-docs
-    - /Users/varunshoor/mac-setup
+    - /Users/varunshoor/bottomline/nametrust/blog-theme
+    - /Users/varunshoor/bottomline/nametrust/website
+    - /Users/varunshoor/bottomline/nametrust/rdap-worker
+    - /Users/varunshoor/dev/nametrust/vercelaisdk/experimental-chat
     - /Users/varunshoor/bottomline/goto/backend
     - /Users/varunshoor/bottomline/goto/infrastructure
-    - /Users/varunshoor/bottomline/bottomlinevc/website
     - /Users/varunshoor/bottomline/stonkquant/backtest
     - /Users/varunshoor/bottomline/dotmonk/website
     - /Users/varunshoor/bottomline/stonkquant/strategizer

@@ -28,6 +28,8 @@ zinit light-mode for \
 
 # ATUIN
 zinit light atuinsh/atuin
+# Fix: pass ATUIN_SESSION to tmux popup so session filtering uses the pane's session, not the parent shell's
+functions[__atuin_search_cmd]="${functions[__atuin_search_cmd]/ATUIN_SHELL=zsh/ATUIN_SESSION=\'\$ATUIN_SESSION\' ATUIN_SHELL=zsh}"
 
 # AUTOSUGGESTIONS, TRIGGER PRECMD HOOK UPON LOAD
 # The order is important, this should appear after atuin loading

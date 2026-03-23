@@ -1,7 +1,7 @@
-# /Users/varunshoor/.config/tmuxinator/bottomlinevc/infrakit.yml
+# /Users/varunshoor/.config/tmuxinator/nametrust/aikit.yml
 
-name: bottomlinevc/infrakit
-root: ~/bottomline/bottomlinevc/infrakit
+name: nametrust/aikit
+root: ~/bottomline/nametrust/aikit
 
 windows:
   - nvim:
